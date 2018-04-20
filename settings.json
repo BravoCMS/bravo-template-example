@@ -1,3 +1,4 @@
 {
-    "image": "@settings/image.json"
+    "image": "@settings/image.json",
+    "page": "@settings/page.json"
 }
