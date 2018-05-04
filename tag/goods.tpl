@@ -1,5 +1,5 @@
 
-<{if count($data)}>
+<{*if count($data)}>
     <div class="goods">
         <h2>{goods}</h2>
         <{foreach $data as $g}>
@@ -47,4 +47,4 @@
             </div>
         <{/foreach}>
     </div>
-<{/if}>
+<{/if*}>
