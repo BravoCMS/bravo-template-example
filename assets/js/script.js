@@ -1,7 +1,30 @@
 
+//Start of--------------------------------Basket--------------------------------
 jQuery(function ($) {
+    // display basket if hash is present
+    if (window.location.hash === '#basket-modal') {
+        $('#basket-modal').modal('show');
+    }
 
+    // set hash if basket opened
+    $('#basket-modal').on('shown.bs.modal', function () {
+        window.location.hash = '#basket-modal';
+    });
+
+    // unset hash if basket closed
+    $('#basket-modal').on('hidden.bs.modal', function () {
+        if (window.location.hash === '#basket-modal') {
+            window.location.hash = '';
+        }
+    });
+
+    // delete item button
+    $(document.body).on('click', '.js-basket-item-delete', function (e) {
+        e.preventDefault();
+        $(this).closest('.js-basket-item').find('.js-basket-item-count').val('0').closest('form').submit();
+    });
 });
+//End of----------------------------------Basket--------------------------------
 
 //Start of--------------------------------Votes & Views-------------------------
 jQuery(function ($) {
