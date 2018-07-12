@@ -1,7 +1,7 @@
 {
     "account": {
         "orders": {
-            "disabled": true
+            "disabled": false
         }
     }
 }
