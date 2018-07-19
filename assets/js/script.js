@@ -108,3 +108,42 @@ jQuery(function ($) {
     });
 });
 //End of---------------------------------Votes & Views--------------------------
+
+//Google Recaptcha behavior
+function ongrecaptchaload() {
+    var $this = jQuery('#js-recaptcha-key').data('$this');
+    if ($this) {
+        $this.trigger('click');
+    }
+}
+
+jQuery(function ($) {
+    var $meta, key;
+
+    $(document.body).on('click', '.js-recaptcha-button', function (e) {
+        var $this = $(this);
+        var $form = $this.closest('form');
+        var $token = $form.find('input[name=token]');
+
+        if ($token.val()) {
+            $form.submit();
+        } else {
+            if (!$('#js-recaptcha-script').length) {
+                $meta = $('#js-recaptcha-key');
+                key = $meta.attr('content');
+                $meta.data('$this', $this);
+                $('<script type="text/javascript" id="js-recaptcha-script" src="https://www.google.com/recaptcha/api.js?render=' + key + '&onload=ongrecaptchaload"></script>').insertAfter($meta);
+            } else {
+                window.grecaptcha.execute(key).then(function (token) {
+                    if (token) {
+                        $token.val(token);
+                        $this.trigger('click');
+                    }
+                });
+            }
+
+            e.preventDefault();
+        }
+    });
+});
+//End of Google Recaptcha behavior
