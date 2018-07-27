@@ -54,8 +54,13 @@ title: Global variables
 
 
 
-## `$user` - global current user data
+## `$customer` - global current customer data
 
+`$customer.is_guest` - `bool`, true if customer is signed in
+
+`$customer.display_name` - `string`, customer name
+
+`$customer.image` - `string`, customer avatar location
 
 
 ## `$is_web_admin` - `bool` whether user came from admin panel, and should see management tools
