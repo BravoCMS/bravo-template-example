@@ -7,6 +7,9 @@ nbproject
 # npm temporary files
 etc
 
+# npm dev files
+node_modules
+
 # zend studio for eclipse project files
 .buildpath
 .project

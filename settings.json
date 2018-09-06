@@ -1,4 +1,5 @@
 {
+    "npm": "install",
     "image": "@settings/image.json",
     "page": "@settings/page.json",
     "file": "@settings/file.json",
