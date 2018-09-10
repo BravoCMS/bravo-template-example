@@ -2,6 +2,7 @@
     "dependencies": {
         "jquery": "^3.3",
         "popper.js": "^1.14",
-        "bootstrap": "^4.1"
+        "bootstrap": "^4.1",
+        "ajax-button": "^1.0"
     }
 }
