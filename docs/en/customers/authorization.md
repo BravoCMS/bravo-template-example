@@ -9,7 +9,11 @@ title: Authorization
 Use tag <{account_sign_in_url}>
 
 <a href="<{account_sign_in_url}>">
-    link text, e.g. 'Sign In' or 'Change Account'
+    <{if $customer.is_guest}>
+        Sign In
+    <{else}>
+        Change Account
+    <{/if}>
 </a>
 
 
