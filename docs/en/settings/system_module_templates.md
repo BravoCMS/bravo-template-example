@@ -78,3 +78,7 @@ Module attribute `options` is a way to implement different views of the same sys
 
 
 `%option_key%.image` - file path to preview image, optional
+
+
+[Settings](settings.md)
+[Home](../index.md)
