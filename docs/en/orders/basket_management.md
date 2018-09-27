@@ -1,35 +1,40 @@
----
-title: Basket management
----
 
 # Basket management
 
 ## Adding articles to basket
 
+```html
 <{basket_form[ id=?][ class=?][ return_url=?][ article=?][ count=?]}>
 
 <{/basket_form}>
+```
 
 attributes:
 
-id, class - html element attributes will be added to <form>
+`id`, `class` - html element attributes will be added to <form>
 
-return_url - optional, defaults to current page, returns user to page after
+`return_url` - optional, defaults to current page, returns user to page after
 action, can contain "#fragment" value in order to get the value by javascript
 on the page
 
-article - optional, object of type `catalog_article`, or use explicit html
+`article` - optional, object of type `catalog_article`, or use explicit html
 field/'s e.g.
-<input type="text" name="article[{article_id}]" value="{count}" />
 
-count - optional, defaults to 1, use 0 to remove article from basket, or use
-explicit html field/'s e.g. 
-<input type="text" name="article[{article_id}]" value="{count}" />
+```html
+<input type="text" name="article[`article_id`]" value="`count`" />
+```
+
+`count` - optional, defaults to 1, use 0 to remove article from basket, or use
+explicit html field/'s e.g.
+
+```html
+<input type="text" name="article[`article_id`]" value="`count`" />
+```
 
 
 ## How to display basket content
 
-Use tag <{get_basket "basket"}>, variable with specified name in first attribute
+Use tag `<{get_basket "basket"}>`, variable with specified name in first attribute
 will contain:
 
 `$basket.items` - `array` of positions
@@ -97,3 +102,6 @@ current currency
 
 `$basket.delivery.{delivery_id}.total.html` - `string`, total html formatted
 price summary in current currency
+
+
+[Home](../index.md)

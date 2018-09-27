@@ -1,6 +1,3 @@
----
-title: Favorites in catalog
----
 
 # Favorites Form
 
@@ -45,3 +42,6 @@ Example:
         See favorites
     </a>
 <{/if}>
+
+
+[Home](../index.md)

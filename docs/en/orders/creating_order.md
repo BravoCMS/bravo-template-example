@@ -1,6 +1,3 @@
----
-title: Creating new order
----
 
 # Creating new order
 
@@ -112,3 +109,6 @@ Example:
         Submit
     </button>
 <{/order_form}>
+
+
+[Home](../index.md)

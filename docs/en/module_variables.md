@@ -1,6 +1,3 @@
----
-title: Module variables
----
 
 # Text module
 

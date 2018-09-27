@@ -1,6 +1,3 @@
----
-title: Callback Form
----
 
 # Callback Form
 
@@ -25,3 +22,6 @@ provides empty `token` field, which should be filled with Google Recaptcha
 value(public key specified in <{$site.grecaptcha_key}>)
 
 For dynamic recaptcha usage see: /assets/js/script.js
+
+
+[Home](../index.md)

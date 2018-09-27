@@ -1,6 +1,3 @@
----
-title: Photo albums module
----
 
 Module with provided list of albums. Each album should lead to subpage.
 Default template: `/photo_albums.tpl`
@@ -13,5 +10,5 @@ Default template: `/photo_albums.tpl`
 ## `$pagination` - default pagination var
 
 
-[Modules](modules.md).
-[Home](index.md).
+[Modules](index.md).
+[Home](../index.md).

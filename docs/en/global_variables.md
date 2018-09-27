@@ -1,6 +1,3 @@
----
-title: Global variables
----
 
 # Global variables are initialized in all(pages, tags) templates
 
@@ -64,11 +61,6 @@ title: Global variables
 
 
 ## `$is_web_admin` - `bool` whether user came from admin panel, and should see management tools
-
-
-
-## `$__tf` - `string` if template folder is in use, it contains its name
-
 
 
 [Home](index.md).

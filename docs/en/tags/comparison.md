@@ -1,6 +1,3 @@
----
-title: Comparison Form
----
 
 # Comparison Form
 
@@ -37,3 +34,6 @@ Example:
 <a href="<{comparison_url}>">
     Compare articles
 </a>
+
+
+[Home](../index.md)

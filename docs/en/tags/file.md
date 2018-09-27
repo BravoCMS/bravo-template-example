@@ -1,6 +1,3 @@
----
-title: File
----
 
 # How to include assets
 
@@ -11,3 +8,6 @@ title: File
 Example:
 
 <link href="<{file 'assets/css/style.css'}>" rel="stylesheet" type="text/css" />
+
+
+[Home](../index.md)

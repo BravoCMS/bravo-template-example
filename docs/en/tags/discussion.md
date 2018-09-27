@@ -1,6 +1,3 @@
----
-title: Discussion tag usage
----
 
 Tag to provide element with discussion
 
@@ -54,5 +51,4 @@ Show message that post wasn't created
 will be accessible as `$var_reason`
 
 
-[Template tags](index.md).
-[Home](index.md).
+[Home](../index.md)

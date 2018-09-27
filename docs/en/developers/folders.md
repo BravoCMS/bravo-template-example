@@ -63,5 +63,4 @@ In case you are requesting url with ajax, server will provide data:
 `options.post` - data you should provide to POST request
 
 
-
 [Home](../index.md)

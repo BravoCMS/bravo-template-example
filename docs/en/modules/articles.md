@@ -1,6 +1,3 @@
----
-title: Blog articles module
----
 
 Module with provided list of articles. Each article should lead to subpage.
 Default template: `/articles.tpl`
@@ -13,5 +10,5 @@ Default template: `/articles.tpl`
 ## `$pagination` - default pagination var
 
 
-[Modules](modules.md).
-[Home](index.md).
+[Modules](index.md).
+[Home](../index.md).

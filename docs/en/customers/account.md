@@ -1,6 +1,3 @@
----
-title: Customer Account
----
 
 # Customer Account
 
@@ -18,3 +15,5 @@ Use tag <{account_url}>
     </a>
 <{/if}>
 
+
+[Home](../index.md)

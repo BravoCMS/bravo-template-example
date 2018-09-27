@@ -1,6 +1,3 @@
----
-title: Breadcrumbs
----
 
 # How to create Breadcrumbs section
 
@@ -27,3 +24,6 @@ Example:
         </ol>
     </nav>
 <{/if}>
+
+
+[Home](../index.md)
