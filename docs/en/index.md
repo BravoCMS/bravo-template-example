@@ -7,6 +7,7 @@ Template uses smarty syntax. [Smarty Documentation](https://www.smarty.net/docs/
   - [Global variables](global_variables.md)
   - [Module variables](module_variables.md)
 - [Modules](modules/index.md)
+  - [Text page](text.md)
   - [Blog articles(List)](articles.md)
   - [Blog article](article.md)
   - [Photo albums(List)](photo_albums.md)
@@ -28,3 +29,5 @@ Template uses smarty syntax. [Smarty Documentation](https://www.smarty.net/docs/
 - [Settings](settings/settings.md)
   - [System module templates](settings/system_module_templates.md)
   - [Using npm](settings/using_npm.md)
+- [Template post-tags](post_tags/index.md)
+  - [Simple form](post_tags/simple_form.md)

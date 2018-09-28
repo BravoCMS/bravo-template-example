@@ -24,4 +24,5 @@ value(public key specified in <{$site.grecaptcha_key}>)
 For dynamic recaptcha usage see: /assets/js/script.js
 
 
+[Post tags](index.md)
 [Home](../index.md)
