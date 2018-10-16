@@ -1,7 +1,6 @@
 {
     "sections": {
         "hidden": [
-            "catalog",
             "legacy"
         ]
     }
