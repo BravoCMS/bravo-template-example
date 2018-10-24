@@ -12,6 +12,7 @@ Template uses smarty syntax. [Smarty Documentation](https://www.smarty.net/docs/
   - [Blog article](article.md)
   - [Photo albums(List)](photo_albums.md)
   - [Photo album](photo_album.md)
+  - [Search](search.md)
 - Customers
   - [Authorization](customers/authorization.md)
   - [Account](customers/account.md)
@@ -23,6 +24,7 @@ Template uses smarty syntax. [Smarty Documentation](https://www.smarty.net/docs/
 - Template tags
   - [Breadcrumbs](tags/breadcrumbs.md)
   - [File inclusion](tags/file.md)
+  - [Search form](tags/search_form.md)
   - [Discussion, Reviews, Comments](tags/discussion.md)
   - [Catalog articles comparison](tags/comparison.md)
   - [Catalog articles favorites](tags/favorites.md)
