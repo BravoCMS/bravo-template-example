@@ -1,5 +1,5 @@
 
-jQuery(function ($) {
+require(['jquery'], function ($) {
     // keep signed in
     setInterval(function () {
         $.ajax({

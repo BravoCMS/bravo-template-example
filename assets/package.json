@@ -1,10 +1,13 @@
 {
     "dependencies": {
-        "@bravosellcms/ajax-button": "^1.0",
-        "@bravosellcms/file-manager": "^1.0",
+        "requirejs": "^2.3",
+        "@bravosellcms/ajax-button": "^1.1",
+        "@bravosellcms/file-manager": "^1.1",
         "@bravosellcms/editor": "^1.0",
         "bootstrap": "^4.1",
         "jquery": "^3.3",
-        "popper.js": "^1.14"
+        "jquery-ui-dist": "^1.12",
+        "popper.js": "^1.14",
+        "js-cookie": "^2.2"
     }
 }

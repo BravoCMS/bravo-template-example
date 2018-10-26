@@ -1,6 +1,8 @@
 
+require(['bootstrap', 'ajaxButton', 'fileManager']);
+
 //Start of--------------------------------Basket--------------------------------
-jQuery(function ($) {
+require(['jquery'], function ($) {
     // display basket if hash is present
     if (window.location.hash === '#basket-modal') {
         $('#basket-modal').modal('show');
@@ -27,7 +29,7 @@ jQuery(function ($) {
 //End of----------------------------------Basket--------------------------------
 
 //Start of--------------------------------Votes & Views-------------------------
-jQuery(function ($) {
+require(['jquery'], function ($) {
     /*TODO: update to real count? 
      $('.js-views').each(function () {
      $.ajax({
@@ -111,13 +113,15 @@ jQuery(function ($) {
 
 //Google Recaptcha behavior
 function ongrecaptchaload() {
-    var $this = jQuery('#js-recaptcha-key').data('$this');
+    var $ = require('jquery');
+
+    var $this = $('#js-recaptcha-key').data('$this');
     if ($this) {
         $this.trigger('click');
     }
 }
 
-jQuery(function ($) {
+require(['jquery'], function ($) {
     var $meta, key;
 
     $(document.body).on('click', '.js-recaptcha-button', function (e) {
