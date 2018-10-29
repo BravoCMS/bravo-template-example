@@ -1,5 +1,5 @@
 
-require(['bootstrap', 'ajaxButton', 'fileManager']);
+require(['bootstrap', 'ajaxButton']);
 
 //Start of--------------------------------Basket--------------------------------
 require(['jquery'], function ($) {
