@@ -10,11 +10,21 @@
 }
 
 .file-manager-modal .file-manager-file:hover,
+.file-manager-modal .file-manager-file.ui-selecting,
+.file-manager-modal .file-manager-all-file:hover,
+.file-manager-modal .file-manager-all-file.ui-selecting {
+    border: 2px dotted #53c7b2;
+    cursor: pointer;
+}
+
+.file-manager-modal .file-manager-file.ui-selected:hover,
 .file-manager-modal .file-manager-file.ui-selected,
-.file-manager-modal .file-manager-file.ui-selecting {
+.file-manager-modal .file-manager-file.ui-selected.ui-selecting,
+.file-manager-modal .file-manager-all-file.ui-selected:hover,
+.file-manager-modal .file-manager-all-file.ui-selected,
+.file-manager-modal .file-manager-all-file.ui-selected.ui-selecting {
     border: 2px solid #53c7b2;
     cursor: pointer;
-    padding-bottom: 12px;
 }
 
 .form-control.file-manager-control {
@@ -24,4 +34,8 @@
     flex-wrap: wrap;
     min-height: 34px;
     height: auto;
+}
+
+.file-manager-modal .file-manager-all-files {
+    border-left: 1px dotted black;
 }
