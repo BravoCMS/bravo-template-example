@@ -3,22 +3,31 @@
 
 In case you are authorized front-end developer, you will be provided with ftp access to your test environment.
 
-Create separate folders for different templates, then you will be able to view them.
+Create separate folders for different templates.
 
-Template should be provided with `settings.json`
+Template should contain `[settings.json](../settings/settings.md)` file, to be properly displayed.
+Or you can simply clone this or another template and upload into a folder.
 
 
 ## Folder selection
 
+You should be authorized on the website as developer: log into admin panel of the site http://admin.totalcan.com/,
+and click any link that redirects to the website e.g. right next to the site name.
+Then you can access your templates in ftp folders, for now by this address: `/ajax/developer_templates/`
+
 `$user.developer_templates` - variable provide address to access list of options, can be used as regular link to page or ajax json/jsonp request
 
-ensure the user is developer, not a guest or customer:
-
 ```html
+<!-- ensure the user is developer, not a guest or customer: -->
 <{if $user.is_developer}>
-    ... yuor html/js code etc <{$bar.developer_templates}> ...
+    ... your html/js code etc ...
+    for example:
+    <a href="<{$user.developer_templates}>" target="_blank">
+        Change template folder
+    </a>
 <{/if}>
 ```
+
 
 ## AJAX implementation
 
