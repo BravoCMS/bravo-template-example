@@ -5,7 +5,7 @@ In case you are authorized front-end developer, you will be provided with ftp ac
 
 Create separate folders for different templates.
 
-Template should contain `[settings.json](../settings/settings.md)` file, to be properly displayed.
+Template should contain [settings.json](../settings/settings.md) file, to be properly displayed.
 Or you can simply clone this or another template and upload into a folder.
 
 
