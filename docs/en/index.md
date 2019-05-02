@@ -30,6 +30,8 @@ Template uses smarty syntax. [Smarty Documentation](https://www.smarty.net/docs/
   - [Discussion, Reviews, Comments](tags/discussion.md)
   - [Catalog articles comparison](tags/comparison.md)
   - [Catalog articles favorites](tags/favorites.md)
+- [Modifiers](modifiers/index.md)
+  - [Date/Time formatting. as_date, as_time, as_datetime, date_format](modifiers/datetime.md)
 - [Settings](settings/settings.md)
   - [System module templates](settings/system_module_templates.md)
   - [Using npm](settings/using_npm.md)
