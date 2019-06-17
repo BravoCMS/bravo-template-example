@@ -23,14 +23,19 @@ if you need to use pagination, you should:
 put `misc/pagination.tpl` to the place where you want to display pagination
 
 `<div class="row">`
+
    `<{include 'misc/pagination.tpl'}>`
+
 `</div>`
 
 next, use this design before the method `foreach`:
 
 `<{get_blog_articles 'articles' 'pagination' by=10 by_options=[10] select='date' page_query}> `
+
 `<{foreach $articles as $article}>`
+
    `...`
+   
 `<{/foreach}>`
 
 

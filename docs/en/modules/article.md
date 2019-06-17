@@ -1,5 +1,5 @@
 
-Module with provided article content.
+# Module with provided article content.
 Default template: `/article.tpl`
 
 
@@ -35,4 +35,5 @@ Attributes:
 
 
 [Modules](index.md).
+
 [Home](../index.md).
