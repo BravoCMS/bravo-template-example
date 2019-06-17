@@ -16,3 +16,8 @@
   - [Поиск](modules/search.md)
 - [Теги шаблона](tags/index.md)
   - [Обсуждения, Отзывы, Коментарии](tags/discussion.md)
+- [Settings](settings/settings.md)
+  - [System module templates](settings/system_module_templates.md)
+  - [Using npm](settings/using_npm.md)
+  - [Managing sections in admin panel](settings/admin_sections.md)
+  - [Schemes or color themes](settings/schemes.md)
