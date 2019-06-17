@@ -65,4 +65,4 @@
 ## `$is_web_admin` - `bool` whether user came from admin panel, and should see management tools
 
 
-[На главную](index.md).
+[На главную](../index.md).
