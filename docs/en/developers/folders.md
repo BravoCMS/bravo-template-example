@@ -3,6 +3,18 @@
 
 In case you are authorized front-end developer, you will be provided with ftp access to your test environment.
 
+namely :
+- host
+- login
+- password
+
+- also you must tell us your ip address (you can find it here https://whoer.net/ru). Without ip access , you can`t connect to ftp.
+
+connection to ftp:
+1) you must download the application FileZilla or other (for example, WinScp it has a synchronization mode with a local folder)
+2) enter the host, login, password
+3) connect
+
 Create separate folders for different templates.
 
 Template should contain [settings.json](../settings/settings.md) file, to be properly displayed.
@@ -14,6 +26,12 @@ Or you can simply clone this or another template and upload into a folder.
 You should be authorized on the website as developer: log into admin panel of the site http://admin.totalcan.com/,
 and click any link that redirects to the website e.g. right next to the site name.
 Then you can access your templates in ftp folders, for now by this address: `/ajax/developer_templates/`
+
+remark: 
+if you don`t click any link that redirects to the website  
+or 
+if you inactive some time.
+You'll catch error "Forbidden (#403)"
 
 `$user.developer_templates` - variable provide address to access list of options, can be used as regular link to page or ajax json/jsonp request
 

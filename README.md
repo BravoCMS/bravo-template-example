@@ -1,2 +1,3 @@
+
 - [English](docs/en/index.md)
-- [Русский](docs/ru/начало.md)
+- [Русский](docs/ru/index.md)

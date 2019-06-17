@@ -1,35 +1,40 @@
----
-title: Управление корзиной
----
 
-# Управление корзиной
+# Basket management
 
-## Добавление товаров в корзину
+## Adding articles to basket
 
+```html
 <{basket_form[ id=?][ class=?][ return_url=?][ article=?][ count=?]}>
 
 <{/basket_form}>
+```
 
-Аттрибуты:
+attributes:
 
-id, class - html аттрибуты элемента <form>
+`id`, `class` - html element attributes will be added to <form>
 
-return_url - не нобязателен, по-умолчанию - текущая страница, возвращает
-пользователя после выполнения действия. Можно указывать фрагмент/якорь к ссылке
-(Например "#fragment") для получения javascript скриптами или прокрутки страницы.
+`return_url` - optional, defaults to current page, returns user to page after
+action, can contain "#fragment" value in order to get the value by javascript
+on the page
 
-article - optional, object of type `catalog_article`, or use explicit html
+`article` - optional, object of type `catalog_article`, or use explicit html
 field/'s e.g.
-<input type="text" name="article[{article_id}]" value="{count}" />
 
-count - optional, defaults to 1, use 0 to remove article from basket, or use
-explicit html field/'s e.g. 
-<input type="text" name="article[{article_id}]" value="{count}" />
+```html
+<input type="text" name="article[`article_id`]" value="`count`" />
+```
+
+`count` - optional, defaults to 1, use 0 to remove article from basket, or use
+explicit html field/'s e.g.
+
+```html
+<input type="text" name="article[`article_id`]" value="`count`" />
+```
 
 
-## Как вывести содержимое корзины
+## How to display basket content
 
-Use tag <{get_basket "basket"}>, variable with specified name in first attribute
+Use tag `<{get_basket "basket"}>`, variable with specified name in first attribute
 will contain:
 
 `$basket.items` - `array` of positions
@@ -97,3 +102,6 @@ current currency
 
 `$basket.delivery.{delivery_id}.total.html` - `string`, total html formatted
 price summary in current currency
+
+
+[Home](../index.md)
