@@ -1,4 +1,4 @@
-# Text module
+### Переменная module
 
 `$module.name` - `string`, значение заголовка страницы
 

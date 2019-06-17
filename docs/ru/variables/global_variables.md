@@ -1,9 +1,9 @@
 
-# Global variables are initialized in all(pages, tags) templates
+# Глобальные переменные инициализируются во всех (страницах, тегах) шаблонов
 
 Вы всегда можете посмотреть все свойства переменой используя `<{$prop|debug_print_var}>`
 
-## `$site` - global website settings
+## `$site` - глобальные настройки сайта
 
 `$site.name` - `string` название компании, которую представляет сайт
 
@@ -15,7 +15,7 @@
 
 
 
-### `$site.logo` - information about logo settings
+### `$site.logo` - информация о настройках логотипа
 
 `$site.logo.type` - `string` или "image" или "text" значение, представляет тип логотипа
 
@@ -31,8 +31,8 @@
 
 
 
-### `$site.languages` - languages available on site
-### `$site.active_language` - currently active language
+### `$site.languages` - языки доступны на сайте
+### `$site.active_language` - в настоящее время активный язык
 
 `$site.languages['id'].language_id`
 
@@ -47,13 +47,11 @@
 `$site.active_language.page_url` - URL текущей страницы на языке
 
 
-
-### `$site.currencies` - languages available on site
-### `$site.active_currency` - currently active language
-
+### `$site.currencies` - языки доступны на сайте
+### `$site.active_currency` - в настоящее время активный язык
 
 
-## `$customer` - global current customer data
+## `$customer` - текущие глобальные  данные о пользователях
 
 `$customer.is_guest` - `bool`, истина, если пользователь вошел
 
@@ -62,7 +60,7 @@
 `$customer.image` - `string`, расположение аватара пользователя
 
 
-## `$is_web_admin` - `bool` whether user came from admin panel, and should see management tools
+## `$is_web_admin` - `bool` перешел ли пользователь из админ-панели и должен увидеть инструменты управления
 
 
 [На главную](../index.md).
