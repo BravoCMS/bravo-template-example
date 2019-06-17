@@ -11,6 +11,8 @@
   - [Текстовый](modules/text.md)
   - [Статьи блога(Список)](modules/articles.md)
   - [Сатья блога](modules/article.md)
+  - [события](modules/events.md)
+  - [событие](modules/event.md)
   - [Альбом фотографий(Список)](modules/photo_albums.md)
   - [Альбом фотографий](modules/photo_album.md)
   - [Поиск](modules/search.md)

@@ -1,41 +1,37 @@
 
-Module with provided article content.
-Default template: `/article.tpl`
+Модуль с предоставленным содержанием статьи.
+Шаблон по умолчанию: `/article.tpl`
 
-# Pre-assigned variables
 
-## `$article` - article object to display
+## `$article` - объект статьи для отображения
 
 Attributes:
 
-`$article.language_id` - language ID
+`$article.language_id` - идентификатор языка
 
+`$article.short_name` - краткое название статьи, должно отображаться во фрагменте (в списках статей, где не отображается полный контент)
 
-`$article.short_name` - short name of the article, should be displayed in snippet(in articles lists, where full content not displayed)
+`$article.intro` - краткое содержание статьи, должно отображаться во фрагменте (в списках статей, где не отображается полное содержание)
 
-`$article.intro` - article short content, should be displayed in snippet(in articles lists, where full content not displayed)
+`$article.name` - полное название статьи, должно отображаться в теге `<h1>` на странице статьи
 
+`$article.text` - содержание статьи, должно отображаться на странице статьи
 
-`$article.name` - full name of the article, should be displayed in `<h1>` tag on the article page
+`$article.extra` - дополнительный контент статьи, можно комбинировать с контентом на странице статьи
 
-`$article.text` - article content, should be displayed on article page
+`$article.title` - название статьи для отображения в `<title>` теге на странице статьи
 
-`$article.extra` - additional article content, can be combined with content on article page
+`$article.description` - значение метатега описания статьи на странице статьи
 
-`$article.title` - article title to display in `<title>` tag on article page
+`$article.keywords` - значение метатега ключевых слов статьи на странице статьи
 
-`$article.description` - article description meta tag value on article page
+`$article.relative_url` - относительный URL на страницу статьи
 
-`$article.keywords` - article keywords meta tag value on article page
+`$article.absolute_url` - абсолютный URL на страницу статьи
 
+`$article.panel_relative_url` - относительный URL к панели администратора для обновления данных статьи
 
-`$article.relative_url` - url to article page
-
-`$article.absolute_url` - url to canonical domain article page
-
-`$article.panel_relative_url` - url to admin panel to update article data
-
-`$article.panel_absolute_url` - url to canonical domain admin panel to update article data
+`$article.panel_absolute_url` - абсолютный URL к панели администратора для обновления данных статьи
 
 
 [Modules](index.md).

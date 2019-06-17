@@ -26,11 +26,11 @@
 
 `$module.relative_url` - относительный URL
 
-`$module.panel_relative_url` - относительный URL
+`$module.panel_relative_url` - относительный URL к панели администратора
 
 `$module.absolute_url` - абсолютный URL
 
-`$module.panel_absolute_url` - абсолютный URL
+`$module.panel_absolute_url` - абсолютный URL к панели администратора
 
 `$module.original_text` - `html`, 
 

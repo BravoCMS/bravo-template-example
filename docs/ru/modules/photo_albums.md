@@ -1,6 +1,6 @@
 
 Module with provided list of albums. Each album should lead to subpage.
-Default template: `/photo_albums.tpl`
+Шаблон по умолчанию: `/photo_albums.tpl`
 
 # Pre-assigned variables
 

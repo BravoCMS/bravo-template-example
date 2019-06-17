@@ -1,13 +1,32 @@
 
-Module with provided list of articles. Each article should lead to subpage.
-Default template: `/articles.tpl`
+Module with provided list of articles. Each article should lead to subpage. 
+Default template:  `/articles.tpl`
 
-# Pre-assigned variables
+`<{$articles}>` displays an array of all articles
+if we insert in html we get `(Array)`
 
-## `$articles` - list of articles to display
+to work with a variable, we need to iterate through this array
+###use the `foreach` method 
 
+`<{foreach $articles as $article}>`
+    `$article.short_name|htmlspecialchars`
+`<{/foreach}>`
 
-## `$pagination` - default pagination var
+in this case we will go through the whole array and return the name of all the articles to the page.
+
+### `$pagination` - default pagination variable
+if you need to use pagination, you should:
+put `misc/pagination.tpl` to the place where you want to display pagination
+
+`<div class="row">`
+    `<{include 'misc/pagination.tpl'}>`
+`</div>`
+
+next, use this design before the method `foreach`:
+`<{get_blog_articles 'articles' 'pagination' by=10 by_options=[10] select='date' page_query}> `
+`<{foreach $articles as $article}>`
+    `...`
+`<{/foreach}>`
 
 
 [Modules](index.md).
