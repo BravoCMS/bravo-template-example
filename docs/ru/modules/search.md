@@ -1,6 +1,6 @@
 
 Module with provided search items.
-Default template: `/search.tpl`
+Шаблон по умолчанию: `/search.tpl`
 
 # Pre-assigned variables
 

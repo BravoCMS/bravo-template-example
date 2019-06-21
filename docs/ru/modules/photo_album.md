@@ -1,6 +1,6 @@
 
 Module with provided album. Should represent all photos assigned to the album.
-Default template: `/photo_album.tpl`
+Шаблон по умолчанию: `/photo_album.tpl`
 
 # Pre-assigned variables
 
