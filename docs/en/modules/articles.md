@@ -6,6 +6,10 @@ Default template:  `/articles.tpl`
 
 if we insert in html we get `(Array)`, to work with a variable, we need to iterate through this array
 
+### First you need to get the elements, and then you can use them from the variable
+
+`<{get_blog_articles 'articles' 'pagination' by="12" page_query}>` - getting elements
+
 ### use the `foreach` method 
 
 `<{foreach $articles as $article}>`
@@ -27,16 +31,6 @@ put `misc/pagination.tpl` to the place where you want to display pagination
    `<{include 'misc/pagination.tpl'}>`
 
 `</div>`
-
-next, use this design before the method `foreach`:
-
-`<{get_blog_articles 'articles' 'pagination' by=10 by_options=[10] select='date' page_query}> `
-
-`<{foreach $articles as $article}>`
-
-   `...`
-   
-`<{/foreach}>`
 
 
 [Modules](index.md).
