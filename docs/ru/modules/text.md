@@ -1,13 +1,9 @@
 
-Module with provided page content.
-Default template: `/text.tpl`
+#Модуль с предоставленным содержанием страницы.
+Шаблон по умолчанию: `/text.tpl`
 
-# Pre-assigned variables
+ `$module.text` - контент страницы
+ `$module.name` - имя страницы
 
-## `$module` - page data to display
-
-### `$module.text` - page content
-
-
-[Modules](index.md).
-[Home](../index.md).
+[Модули](index.md).
+[На главную](../index.md).

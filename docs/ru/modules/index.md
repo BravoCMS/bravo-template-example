@@ -1,12 +1,14 @@
 
-# Modules
+# Модули
 
 - Text page
-- [Blog](articles.md)
-- [Blog article](article.md)
-- [Photo albums](photo_albums.md)
-- [Photos from album](photo_album.md)
-- [Search](search.md)
+- [статьи](articles.md)
+- [статья](article.md)
+- [фото альбомы](photo_albums.md)
+- [фото альбом](photo_album.md)
+- [события](events.md)
+- [событие](event.md)
+- [поиск](search.md)
 
 
-[Home](../index.md).
+[На главную](../index.md).
