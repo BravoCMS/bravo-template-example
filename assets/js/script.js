@@ -30,26 +30,28 @@ require(['jquery'], function ($) {
 
 //Start of--------------------------------Votes & Views-------------------------
 require(['jquery'], function ($) {
-    /*TODO: update to real count? 
-     $('.js-views').each(function () {
-     $.ajax({
-     url: '/ajax/views/',
-     data: {
-     element_id: $(this).data('element-id'),
-     element_type: $(this).data('element-type'),
-     action: $(this).data('action'),
-     },
-     method: 'GET',
-     dataType: 'jsonp',
-     context: this,
-     success: function (data) {
-     if (data.views) {
-     $(this).html(t.text('js_total_views') + "\n<span class='views-count'>" + data.views + "</span>");
-     $(this).trigger('loaded');
-     }
-     }
-     });
-     });*/
+
+    $('.js-views').each(function () {
+        $.ajax({
+            url: '/ajax/views/',
+            data: {
+                element_id: $(this).data('element-id'),
+                element_type: $(this).data('element-type'),
+                action: $(this).data('action'),
+            },
+            method: 'GET',
+            dataType: 'jsonp',
+            context: this,
+            success: function (data) {
+                if (data.views) {
+                    var htmlCode = "<span class='views-label'>" + t('Просмотров:') + "</span>\n<span class='views-count'>" + data.views + "</span>";
+
+                    $(this).html(htmlCode);
+                    $(this).trigger('loaded');
+                }
+            }
+        });
+    });
 
     $('.js-votes').each(function () {
         $.ajax({

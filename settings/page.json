@@ -2,9 +2,6 @@
     "account": {
         "orders": {
             "disabled": false
-        },
-        "activity": {
-            "disabled": true
         }
     }
 }
