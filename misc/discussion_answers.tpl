@@ -42,7 +42,7 @@
                     Ответить на отзыв
                 </button>
             <{else}>
-                <a href="<{account_sign_in_url '#discussion-anchor'}>" class="btn btn-primary">
+                <a href="<{account_sign_in_url '#discussion-anchor' message='Авторизоваться чтобы написать отзыв'}>" class="btn btn-primary">
                     Авторизоваться чтобы ответить на отзыв
                 </a>
             <{/if}>
