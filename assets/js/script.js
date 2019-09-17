@@ -1,8 +1,15 @@
 
 require(['bootstrap', 'ajaxButton']);
 
+require(['jquery', 'bootstrap'], function ($) {
+    // display create site modal if hash is present
+    if (window.location.hash === '#create-site-modal') {
+        $('#create-site-modal').modal('show');
+    }
+});
+
 //Start of--------------------------------Basket--------------------------------
-require(['jquery'], function ($) {
+require(['jquery', 'bootstrap'], function ($) {
     // display basket if hash is present
     if (window.location.hash === '#basket-modal') {
         $('#basket-modal').modal('show');
