@@ -1,11 +1,24 @@
 
-<{create_site_form}>
-    <input type="text" name="name" />
-    <button type="submit">
-        Создать
-    </button>
-    <{create_site_form_user_sign_in}>
-    <a href="<{user_sign_in_url}>">
-        Sign In
-    </a>
-<{/create_site_form}>
+# Creating website
+use <{create_site_form}> tag
+
+
+Example:
+
+```html
+<{get_user "user"}>
+<{if !$user.is_guest}>
+    <{create_site_form}>
+        <input type="text" name="name" />
+        <input type="text" name="promo" />
+        <button type="submit">
+            Создать
+        </button>
+    <{/create_site_form}>
+<{/if}>
+```
+
+
+[Provider functionality](index.md).
+
+[Home](../index.md).
