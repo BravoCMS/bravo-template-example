@@ -21,16 +21,18 @@ Tag attributes:
 You can specify optional field names which will be kept structured
 
 ```html
-<{callback_form}>
+<simple_form>
     <input type="text" name="name" />
     <input type="email" name="email" />
+    <input type="phone" name="phone" />
     <input type="text" name="subject" />
     <textarea name="message"></textarea>
-<{/callback_form}>
+</simple_form>
 ```
 
 `name` - user name
 `email` - user email, user will be notified about his submission
+`phone` - user phone
 `subject` - subject to submission
 `message` - user message
 
