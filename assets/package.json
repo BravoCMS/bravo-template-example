@@ -3,15 +3,15 @@
         "@bravocms/ajax-button": "^1.1",
         "@bravocms/autosaving": "^1.0.6",
         "@bravocms/editor": "^1.0",
-        "@bravocms/file-manager": "^1.1.1",
+        "@bravocms/file-manager": "^1.1.5",
         "@bravocms/language-selector": "^1.0.1",
         "@bravocms/timer": "^1.0",
         "bootstrap": "^4.4.1",
-        "jquery": "^3.4",
-        "jquery-ui-dist": "^1.12",
+        "jquery": "^3.5.0",
         "jquery-colpick": "^3.1.0",
+        "jquery-ui-dist": "^1.12",
         "js-cookie": "^2.2.1",
-        "popper.js": "^1.16.0",
+        "popper.js": "^1.16.1",
         "requirejs": "^2.3"
     }
 }
