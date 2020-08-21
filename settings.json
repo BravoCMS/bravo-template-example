@@ -4,5 +4,6 @@
     "page": "@settings/page.json",
     "file": "@settings/file.json",
     "scheme": "@settings/scheme.json",
-    "admin": "@settings/admin.json"
+    "admin": "@settings/admin.json",
+    "customization": "@settings/customization.json"
 }

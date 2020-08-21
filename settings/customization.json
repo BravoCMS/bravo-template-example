@@ -1,0 +1,24 @@
+{
+    "logo_position": {
+        "type": "radio",
+        "name": "Position of site logo",
+        "options": {
+            "left": {
+                "name": "Align by left side",
+                "image": "/assets/image/scheme/orange.jpg"
+            },
+            "center": {
+                "name": "Align by center",
+                "image": "/assets/image/scheme/orange.jpg"
+            }
+        },
+        "default": "left",
+        "image": "/assets/image/scheme/orange.jpg"
+    },
+    "is_schedule": {
+        "type": "checkbox",
+        "name": "Show the organization schedule in the header layout",
+        "default": 1,
+        "image": "/assets/image/scheme/orange.jpg"
+    }
+}
