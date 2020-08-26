@@ -420,14 +420,10 @@
 
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="http://totalcan.com.ua/" title="Создание сайтов, разработка интернет магазинов, раскрутка сайтов">
-                            Создание сайта totalcan.com.ua
-                        </a>
+                        <{powered_by 'store'}>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="http://bravosell.com/ru/" title="Сайт работает на CMS Bravosell">
-                            CMS интернет магазина - bravosell
-                        </a>
+                        <{powered_by 'site'}>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#create-site-modal" data-toggle="modal" data-target="#create-site-modal">
