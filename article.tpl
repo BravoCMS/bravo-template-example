@@ -11,6 +11,7 @@
 
 <{block name="module"}>
 
+
     <h1>
         <{$article.name|htmlspecialchars}>
     </h1>
