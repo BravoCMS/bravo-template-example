@@ -9,6 +9,10 @@
     <{$article.title|htmlspecialchars}>
 <{/block}>
 
+<{block name=head append}>
+    <meta property="og:image" content="<{absolute_url $article.cover.photo_file_small}>" />
+<{/block}>
+
 <{block name="module"}>
     <div class="row">
         <div class="col-lg-3">
