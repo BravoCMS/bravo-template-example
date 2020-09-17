@@ -268,10 +268,10 @@
                 <{get_currency "currencies" "active_currency"}>
                 <{if $currencies|count > 1}>
                     <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="languages-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="currencies-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <{$active_currency.name|htmlspecialchars}>
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="languages-dropdown">
+                        <div class="dropdown-menu" aria-labelledby="currencies-dropdown">
                             <{foreach $currencies as $currency}>
                                 <a class="dropdown-item<{if $currency.id == $active_currency.id}> active<{/if}>" href="<{$site.url_part|escape}>ajax/select_currency/" data-method="POST" data-post="id=<{$currency.id}>" data-refresh="1">
                                     <{$currency.name|htmlspecialchars}>
