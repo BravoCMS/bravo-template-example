@@ -327,8 +327,8 @@
                 <div class="collapse navbar-collapse" id="catalog-menu-content">
                     <ul class="navbar-nav mr-auto">
                         <{foreach $catalog_menu as $rubric_type}>
-                            <li class="nav-item<{if $rubric_type.is_active}> active<{/if}>">
-                                <div class="btn-group">
+                            <li class="nav-item<{if $rubric_type.is_active || $rubric_type.is_active_ancestor}> active<{/if}>">
+                                <div class="btn-group<{if $rubric_type.is_active || $rubric_type.is_active_ancestor}> active<{/if}>">
                                     <a class="btn btn-link nav-link" href="<{$rubric_type.relative_url}>" title="<{$rubric_type.name|escape}>">
                                         <{$rubric_type.short_name|htmlspecialchars}>
                                     </a>
@@ -340,13 +340,13 @@
 
                                         <div class="dropdown-menu">
                                             <{foreach $rubric_type.children as $rubric}>
-                                                <a class="dropdown-item<{if $rubric.is_active}> active<{/if}>" href="<{$rubric.relative_url}>" title="<{$rubric.name|escape}>">
+                                                <a class="dropdown-item<{if $rubric.is_active || $rubric.is_active_ancestor}> active<{/if}>" href="<{$rubric.relative_url}>" title="<{$rubric.name|escape}>">
                                                     <{$rubric.short_name|htmlspecialchars}>
                                                 </a>
 
                                                 <{if $rubric.children}>
                                                     <{foreach $rubric.children as $category}>
-                                                        <a class="dropdown-item<{if $category.is_active}> active<{/if}>" href="<{$category.relative_url}>" title="<{$category.name|escape}>">
+                                                        <a class="dropdown-item<{if $category.is_active || $category.is_active_ancestor}> active<{/if}>" href="<{$category.relative_url}>" title="<{$category.name|escape}>">
                                                             -
                                                             <{$category.short_name|htmlspecialchars}>
                                                         </a>
