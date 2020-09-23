@@ -20,5 +20,17 @@
         "name": "Show the organization schedule in the header layout",
         "default": 1,
         "image": "/assets/image/scheme/orange.jpg"
+    },
+    "some_color": {
+        "type": "color",
+        "name": "Some color for template",
+        "default": "#ffffff",
+        "image": "/assets/image/customization/some_color.jpg"
+    },
+    "some_text": {
+        "type": "text",
+        "name": "Some text to customize template",
+        "default": "",
+        "image": "/assets/image/customization/some_text.jpg"
     }
 }
