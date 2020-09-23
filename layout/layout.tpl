@@ -115,6 +115,12 @@
                     </a>
                 <{/if}>
 
+                <{if $template.template_customization.some_color}>
+                    <div class="float-right" style="background-color: <{$template.template_customization.some_color}>;">
+                        SC
+                    </div>
+                <{/if}>
+
                 <div class="template-scheme-marker float-right">
                     Sch
                 </div>
