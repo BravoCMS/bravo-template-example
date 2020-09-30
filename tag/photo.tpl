@@ -1,21 +1,20 @@
 
-<{* TODO: DECISION (UNUSED) *}>
-<{*div class="photos">
-    <{if $tag_attributes.title && $album.album_title}>
+<div class="photos">
+    <{if $tag_attributes.title && $album.short_name}>
         <div>
-            <{$album.album_title|htmlspecialchars}>
+            <{$album.short_name|htmlspecialchars}>
         </div>
     <{/if}>
 
-    <{if $tag_attributes.desc && $album.album_description}>
+    <{if $tag_attributes.desc && $album.intro}>
         <div>
-            <{$album.album_description}>
+            <{$album.intro}>
         </div>
     <{/if}>
 
-    <{if $tag_attributes.description && $album.album_description_full}>
+    <{if $tag_attributes.description && $album.extra}>
         <div>
-            <{$album.album_description_full}>
+            <{$album.extra}>
         </div>
     <{/if}>
 
@@ -39,11 +38,11 @@
         </div>
     <{/foreach}>
 
-    <{if $tag_attributes.url}>
+    <{if $tag_attributes.url && $album.relative_url}>
         <div>
-            <a href="<{$tag_attributes.url}>">
+            <a href="<{$album.relative}>">
                 <{t "Смотреть все"}>
             </a>
         </div>
     <{/if}>
-</div*}>
+</div>
