@@ -70,8 +70,8 @@
                                 <img src="<{$photo.photo_file_small}>" />
                             <{/if}>
 
-                            <{if $tag_attributes.photo-desc}>
-                                <div>
+                            <{if $tag_attributes['photo-desc']}>
+                                <div class="photo-desc">
                                     <{$photo.photo_description}>
                                 </div>
                             <{/if}>

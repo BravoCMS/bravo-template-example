@@ -30,7 +30,7 @@
                 </a>
             <{/if}>
 
-            <{if $tag_attributes.photo-desc}>
+            <{if $tag_attributes['photo-desc']}>
                 <div>
                     <{$photo.description}>
                 </div>
