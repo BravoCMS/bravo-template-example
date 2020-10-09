@@ -189,10 +189,13 @@
                             <{basket_form article=$article return_url="#basket-modal"}>
                             <button type="submit" class="btn btn-success">
                                 <{if $article.price.is_price}>
-                                    Купить за
-                                    <{$article.price.html}>
+                                    <{if $article.unit_id}>
+                                        <{t "Buy for {price}/{unit}" price=$article.price.html unit=$article.unit_short_name}>
+                                    <{else}>
+                                        <{t "Buy for {price}" price=$article.price.html}>
+                                    <{/if}>
                                 <{else}>
-                                    Купить
+                                    <{t "Buy"}>
                                 <{/if}>
                             </button>
                             <{/basket_form}>
