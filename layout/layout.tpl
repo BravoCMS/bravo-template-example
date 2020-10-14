@@ -30,6 +30,10 @@
                 }
             };
 
+            t.text = function (key) {
+                return t(key);
+            };
+
             var URL = "<{$site.url_part|escape}>";
         </script>
     <{/strip}>
