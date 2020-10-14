@@ -50,6 +50,21 @@
         <link href="<{file 'assets/css/scheme/red.css'}>" rel="stylesheet" type="text/css" />
     <{/if}>
 
+    <script>
+        var cpAppLanguageCode = "<{$site.active_language.iso_name|escape}>";
+        <{if $site.active_language.iso_name == 'en'}>
+        var cpAppTinyMCELanguage = '';
+        <{elseif $site.active_language.iso_name == 'uk'}>
+        var cpAppTinyMCELanguage = "<{file "assets/node_modules/tinymce-i18n/langs/" dir absolute}>uk_UA.js";
+        <{elseif $site.active_language.iso_name == 'fr'}>
+        var cpAppTinyMCELanguage = "<{file "assets/node_modules/tinymce-i18n/langs/" dir absolute}>fr_FR.js";
+        <{elseif $site.active_language.iso_name == 'ge'}>
+        var cpAppTinyMCELanguage = "<{file "assets/node_modules/tinymce-i18n/langs/" dir absolute}>ka_GE.js";
+        <{else}>
+        var cpAppTinyMCELanguage = "<{file "assets/node_modules/tinymce-i18n/langs/" dir absolute}><{$site.active_language.iso_name|escape}>.js";
+        <{/if}>
+    </script>
+
     <script type="text/javascript" src="<{file 'assets/node_modules/requirejs/require.js'}>"></script>
     <script type="text/javascript">
         require.config({
