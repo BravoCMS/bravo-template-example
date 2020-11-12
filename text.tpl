@@ -12,7 +12,7 @@
 <{block name="module"}>
 
     <h1>
-        <{$module.name|htmlspecialchars}>
+       1. <{$module.name|htmlspecialchars}>
     </h1>
 
     <{$module.text}>
