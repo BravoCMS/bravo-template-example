@@ -10,6 +10,11 @@
         "processing": "exact",
         "watermark": false
     },
+    "thumbnail-1www": {
+        "width": 640,
+        "height": 480,
+        "processing": "exact"
+    },
     "slide-default": {
         "width": 2160,
         "height": 1440,
