@@ -20,7 +20,7 @@
     <div class="row">
         <{foreach $photo_album.photos as $photo}>
             <div class="col-6">
-                <img src="<{$photo.photo_file_small}>" width="100%" />
+                <img src="<{image $photo 'thumbnail-1www'}>" width="100%" />
             </div>
         <{/foreach}>
     </div>
