@@ -8,16 +8,25 @@
         "width": 730,
         "height": 480,
         "processing": "exact",
-        "watermark": false
+        "watermark": false,
+        "blur": {
+            "radius": 1,
+            "sigma": 1
+        },
+        "quality": 85
     },
     "thumbnail-1www": {
         "width": 640,
         "height": 480,
-        "processing": "exact"
+        "processing": "exact",
+        "blur": 2,
+        "quality": 75
     },
     "slide-default": {
         "width": 2160,
         "height": 1440,
-        "processing": "exact"
+        "processing": "exact",
+        "blur": 2,
+        "quality": 75
     }
 }
