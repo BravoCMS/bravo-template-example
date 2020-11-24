@@ -38,6 +38,7 @@ Template uses smarty syntax. [Smarty Documentation](https://www.smarty.net/docs/
 - [Modifiers](modifiers/index.md)
   - [Date/Time formatting. as_date, as_time, as_datetime, date_format](modifiers/datetime.md)
 - [Settings](settings/settings.md)
+  - [Image processing](settings/image.md)
   - [System module templates](settings/system_module_templates.md)
   - [Using npm](settings/using_npm.md)
   - [Managing sections in admin panel](settings/admin_sections.md)
