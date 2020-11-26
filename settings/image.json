@@ -22,6 +22,13 @@
         "blur": 2,
         "quality": 75
     },
+    "thumbnail-2www": {
+        "width": 1240,
+        "height": 999,
+        "processing": "exact",
+        "quality": 75,
+        "convert": "jpg"
+    },
     "slide-default": {
         "width": 2160,
         "height": 1440,
