@@ -26,6 +26,7 @@
             "width": 640,
             "height": 480,
             "processing": "exact",
+            "convert": "jpg",
             "blur": 2,
             "quality": 75
         },
@@ -50,6 +51,10 @@
 `%key_value%.height` - required, Image height
 
 `%key_value%.processing` - optional, defaults to 'max', 'max' - resizing to max values(width/height) saving proportions, 'exact' - resizing and cropping to exact values(width/height)
+
+`%key_value%.watermark` - optional, boolean, defaults to true, whether to apply watermark
+
+`%key_value%.convert` - optional, defaults to ''(empty string), optional values: `jpg` - whether to force convert to jpg format
 
 `%key_value%.blur.radius` - optional, Gaussian blur argument, see https://legacy.imagemagick.org/Usage/blur/
 
