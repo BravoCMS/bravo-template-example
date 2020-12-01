@@ -13,6 +13,7 @@
         "width": 640,
         "height": 480,
         "processing": "exact",
+        "watermark": false,
         "blur": 2,
         "quality": 75
     },
@@ -27,7 +28,10 @@
         "width": 2160,
         "height": 1440,
         "processing": "exact",
-        "blur": 2,
+        "blur": {
+            "radius": 1,
+            "sigma": 2
+        },
         "quality": 75
     }
 }
