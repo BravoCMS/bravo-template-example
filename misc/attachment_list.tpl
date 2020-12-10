@@ -21,11 +21,11 @@
                     </a>
 
                     <div class="control-buttons">
-                        <a href="#edit-photo-<{$a.photo_id}>" class="js-photo-text-button edit-photo-btn btn btn-sm btn-default hover-hide" title="Описание изображения">
+                        <a href="#edit-photo-<{$a.photo_id}>" class="js-photo-text-button edit-photo-btn btn btn-sm btn-default hover-hide" title="<{t 'Image_Description'}>">
                             <span class="material-icons ic_mode_edit"></span>
                         </a>
 
-                        <a href="#sort-photo-<{$a.photo_id}>" class="js-sorting-handle order-photo-btn btn btn-sm btn-default hover-hide" title="Сортировать изображения">
+                        <a href="#sort-photo-<{$a.photo_id}>" class="js-sorting-handle order-photo-btn btn btn-sm btn-default hover-hide" title="<{t 'Sort_images'}>">
                             <span class="material-icons ic_open_with"></span>
                         </a>
                     </div>

@@ -27,7 +27,7 @@
 
                 <{if $filter.catalog}>
                     <h4>
-                        Каталог
+                        <{t "Catalog"}>
                     </h4>
 
                     <nav class="nav flex-column nav-pills">
@@ -55,7 +55,7 @@
 
                 <{if $filter.brands}>
                     <h4>
-                        Бренды
+                        <{t "Brands"}>
                     </h4>
 
                     <nav class="nav flex-column nav-pills">
@@ -73,12 +73,12 @@
 
                 <{if $filter.price.low_value < $filter.price.high_value}>
                     <h4>
-                        Цена
+                        <{t "Price"}>
                     </h4>
 
                     <div class="form-group">
                         <label for="price-from">
-                            От
+                            <{t "From"}>
                             <{$filter.price.low_value|htmlspecialchars}>
                         </label>
 
@@ -87,7 +87,7 @@
 
                     <div class="form-group">
                         <label for="price-to">
-                            До
+                            <{t "To"}>
                             <{$filter.price.high_value|htmlspecialchars}>
                         </label>
 
@@ -97,13 +97,13 @@
 
                 <{if $filter.availability}>
                     <h4>
-                        Наличие
+                        <{t "Availability"}>
                     </h4>
 
                     <nav class="nav flex-column nav-pills">
                         <{foreach $filter.availability as $availability}>
                             <a class="nav-link<{if $availability.is_active}> active<{/if}>" href="<{$availability.query_url}>">
-                                <{$availability.name|htmlspecialchars}>
+                                <{t text=$availability.name|htmlspecialchars}>
                             </a>
 
                             <{if $availability.is_active}>
@@ -135,10 +135,6 @@
                 <{/if}>
 
                 <div class="form-group">
-                    <label for="catalog-by">
-                        Выводить по
-                    </label>
-
                     <select name="by" class="form-control" id="catalog-by">
                         <option value="24"<{if $smarty.get.by == 24}> selected="selected"<{/if}>>
                             24
@@ -154,24 +150,24 @@
 
                 <div class="form-group">
                     <label for="catalog-order">
-                        Сортировать
+                        <{t 'Sort'}>
                     </label>
 
                     <select name="order" class="form-control" id="catalog-order">
                         <option value="price"<{if $smarty.get.order == 'price'}> selected="selected"<{/if}>>
-                            От дешевых к дорогим
+                            <{t 'Cheap_to_expensive'}>
                         </option>
                         <option value="price_desc"<{if $smarty.get.order == 'price_desc'}> selected="selected"<{/if}>>
-                            От дорогих к дешевым 
+                            <{t 'From_expensive_to_cheap'}> 
                         </option>
                         <option value="date_asc"<{if $smarty.get.order == 'date_asc'}> selected="selected"<{/if}>>
-                            От старых к новым
+                            <{t 'From_old_to_new'}>
                         </option>
                         <option value="date"<{if $smarty.get.order == 'date'}> selected="selected"<{/if}>>
-                            От новых к старым 
+                            <{t 'From_new_to_old'}> 
                         </option>
                         <option value="rating"<{if $smarty.get.order == 'rating'}> selected="selected"<{/if}>>
-                            По рейтингу
+                            <{t 'By_rating'}>
                         </option>
                     </select>
                 </div>
@@ -211,10 +207,10 @@
                         <{basket_form article=$article return_url="#basket-modal"}>
                         <button type="submit" class="btn btn-success">
                             <{if $article.price.is_price}>
-                                Купить за
+                                <{t 'Buy_for'}>
                                 <{$article.price.html}>
                             <{else}>
-                                Купить
+                                <{t 'Buy'}>
                             <{/if}>
                         </button>
                         <{/basket_form}>

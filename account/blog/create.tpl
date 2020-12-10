@@ -17,7 +17,7 @@
 
 <{block name="module"}>
     <h1>
-        Добавить статью
+        <{t 'Add_article'}>
     </h1>
 
     <div class="row">
@@ -46,7 +46,7 @@
                 <{foreach $languages as $language}>
                     <div class="js-l-selectee<{if $language.language_id != $active_language_id}> hide<{/if}>" code="<{$language.code}>">
                         <label for="name_<{$language.language_id}>">
-                            Название
+                            <{t 'Name_a'}>
                         </label>
                         <div class="input-group">
                             <input type="text" class="form-control" name="article_translation[<{$language.language_id}>][name]" id="name_<{$language.language_id}>" value="" />
@@ -57,11 +57,11 @@
             </div>
 
             <button type="submit" class="btn btn-primary">
-                Добавить
+                <{t 'Add'}>
             </button>
 
             <a href="<{$back_url}>" class="btn btn-secondary">
-                Назад
+                <{t 'Back'}>
             </a>
             <{/form}>
         </div>

@@ -22,10 +22,10 @@
                     <{basket_form article=$article return_url="#basket-modal"}>
                     <button type="submit" class="btn btn-success">
                         <{if $article.price.is_price}>
-                            Купить за
+                            <{t 'Buy_for'}>
                             <{$article.price.html}>
                         <{else}>
-                            Купить
+                            <{t 'Buy'}>
                         <{/if}>
                     </button>
                     <{/basket_form}>
@@ -33,31 +33,31 @@
 
                 <{if $article.in_comparison}>
                     <a href="<{comparison_url}>" class="btn btn-primary">
-                        Сравнить
+                        <{t 'Compare_one'}>
                     </a>
                 <{else}>
                     <{comparison_form article=$article}>
                     <button type="submit" class="btn btn-secondary">
-                        К сравнению
+                        <{t 'Compare'}>
                     </button>
                     <{/comparison_form}>
                 <{/if}>
 
                 <{if $customer.is_guest}>
                     <a href="<{account_sign_in_url}>">
-                        <{t "Войдите чтобы добавить в избранное"}>
+                        <{t 'Sign in to add to favorites'}>
                     </a>
                 <{else}>
                     <{catalog_wishlist_form $article add}>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".js-wishlist-modal-<{$article.id}>">
-                        В список желаний
+                        <{t 'Add to wishlist'}>
                     </button>
 
                     <div class="modal js-wishlist-modal-<{$article.id}>" tabindex="-1" role="dialog">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title">Добавление в список желаний</h5>
+                                    <h5 class="modal-title"><{t 'Add_to_Wishlist'}></h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -76,9 +76,9 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="submit" class="btn btn-primary">
-                                        Добавить
+                                        <{t 'Add'}>
                                     </button>
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><{t 'Close'}></button>
                                 </div>
                             </div>
                         </div>

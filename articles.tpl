@@ -32,8 +32,8 @@
                 </a>
 
                 <{if $is_web_admin}>
-                    <a href="<{$article.panel_absolute_url}>" target="_blank" title="Редактирвать элемент в панели администратора">
-                        В админку
+                    <a href="<{$article.panel_absolute_url}>" target="_blank" title="<{t 'Edit_item_in_admin_panel'}>">
+                        <{t 'To_admin_panel'}>
                     </a>
                 <{/if}>
             </div>

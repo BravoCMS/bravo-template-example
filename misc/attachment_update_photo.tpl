@@ -7,7 +7,7 @@
                     <span aria-hidden="true"><i class="material-icons ic_highlight_off"></i></span>
                 </button>
                 <h4 class="modal-title">
-                    Редактирование фото
+                    <{t 'Photo_editing'}>
                 </h4>
             </div>
             <div class="modal-body text-left">
@@ -24,7 +24,7 @@
                                     <i class="material-icons ic_mode_edit"></i>
                                     08.04.2016
                                     </span*}>
-                                    <a href="<{$photo.absoluteUrl}>" target="_blank" class="photo-date-insert-link" data-copy-text="URL скопирован">
+                                    <a href="<{$photo.absoluteUrl}>" target="_blank" class="photo-date-insert-link" data-copy-text="<{t 'URL_copied'}>">
                                         <i class="material-icons ic_insert_link"></i>
                                     </a>
                                 </div>
@@ -41,7 +41,7 @@
                             <div class="form-group">
                                 <div class="input-group js-l-scope">
                                     <{foreach $languages as $language}>
-                                        <textarea rows="4" placeholder="Описание фотографии" autosaving-name="photos[<{$photo.photo_id}>][description][<{$language.language_id}>]" code="<{$language.code}>" class="form-control attachment-photo-description js-attachment-photo-description js-l-selectee<{if $language.language_id != $active_language_id}> hide<{else}> js-original-language-textarea<{/if}>"><{$photo.description[$language.language_id]|htmlspecialchars}></textarea>
+                                        <textarea rows="4" placeholder="<{t 'Image_Description'}>" autosaving-name="photos[<{$photo.photo_id}>][description][<{$language.language_id}>]" code="<{$language.code}>" class="form-control attachment-photo-description js-attachment-photo-description js-l-selectee<{if $language.language_id != $active_language_id}> hide<{else}> js-original-language-textarea<{/if}>"><{$photo.description[$language.language_id]|htmlspecialchars}></textarea>
                                     <{/foreach}>
 
                                     <{include '../misc/language_selector.tpl'}>
@@ -50,7 +50,7 @@
                             <div class="form-group">
                                 <div class="input-group input-group-icon">
                                     <i class="material-icons ic_open_in_new"></i>
-                                    <input type="text" placeholder='Ссылка при клике на фото в режиме "слайдер" и "галерея"' autosaving-name="photos[<{$photo.photo_id}>][href]" class="form-control attachment-photo-href js-attachment-photo-href" value="<{$photo.href|escape}>" />
+                                    <input type="text" placeholder="<{t 'Link_when_clicking'}>" autosaving-name="photos[<{$photo.photo_id}>][href]" class="form-control attachment-photo-href js-attachment-photo-href" value="<{$photo.href|escape}>" />
                                 </div>
                             </div>
                             <div class="form-group" style="padding-top: 3px;">
@@ -60,10 +60,10 @@
                                             <span class="js-toggle-photo-loc-date-btn">
                                                 <{if $photo.latitude && $photo.longitude}>
                                                     <i class="material-icons ic_edit_location"></i>
-                                                    Изменить координаты
+                                                    <{t 'Change_coordinates'}>
                                                 <{else}>
                                                     <i class="material-icons ic_add_location"></i>
-                                                    Указать координаты
+                                                    <{t 'Specify_coordinates'}>
                                                 <{/if}>
                                             </span>
                                         </div>
@@ -73,10 +73,10 @@
                                             </div>
 
                                             <div class="col-sm-5" style="padding-right: 8px;">
-                                                <input type="text" class="form-control js-photo-update-latitude" placeholder="Широта" autosaving-name="photos[<{$photo.photo_id}>][latitude]" value="<{$photo.latitude}>" />
+                                                <input type="text" class="form-control js-photo-update-latitude" placeholder="<{t 'Latitude'}>" autosaving-name="photos[<{$photo.photo_id}>][latitude]" value="<{$photo.latitude}>" />
                                             </div>
                                             <div class="col-sm-5" style="padding-left: 7px;">
-                                                <input type="text" class="form-control js-photo-update-longitude" placeholder="Долгота" autosaving-name="photos[<{$photo.photo_id}>][longitude]" value="<{$photo.longitude}>" />
+                                                <input type="text" class="form-control js-photo-update-longitude" placeholder="<{t 'Longitude'}>" autosaving-name="photos[<{$photo.photo_id}>][longitude]" value="<{$photo.longitude}>" />
                                             </div>
                                             <{*div class="col-sm-2" style="padding: 0;">
                                             <a href="" class="btn btn-success" style="padding: 3px 11px;">
@@ -92,20 +92,20 @@
                                                 <{if $photo.time_taken}>
                                                     <{$photo.time_taken|date_format:"%Y-%m-%d"}>
                                                 <{else}>
-                                                    Дата сьемки
+                                                    <{t 'Shooting_date'}>
                                                 <{/if}>
                                             </span>
                                         </div>
                                         <div class="photo-date-created-value js-toggle-photo-loc-date-value row">
                                             <div class="col-sm-12">
-                                                <input type="text" class="form-control js-time-taken" placeholder="Дата сьемки" autosaving-name="photos[<{$photo.photo_id}>][time_taken]" value="<{$photo.time_taken|date_format:"%Y-%m-%d"}>" />
+                                                <input type="text" class="form-control js-time-taken" placeholder="<{t 'Shooting_date'}>" autosaving-name="photos[<{$photo.photo_id}>][time_taken]" value="<{$photo.time_taken|date_format:"%Y-%m-%d"}>" />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="text" placeholder="Укажите ссылку происхождения фото" autosaving-url="<{$smarty.get.url}>&act=update" autosaving-name="photos[<{$photo.photo_id}>][source]" autosaving-method="POST" class="form-control attachment-photo-source js-attachment-photo-source" value="<{$photo.source|escape}>" />
+                                <input type="text" placeholder="<{t 'Provide a link to the origin of the photo'}>" autosaving-url="<{$smarty.get.url}>&act=update" autosaving-name="photos[<{$photo.photo_id}>][source]" autosaving-method="POST" class="form-control attachment-photo-source js-attachment-photo-source" value="<{$photo.source|escape}>" />
                             </div>
                         </div>
                     </div>
@@ -113,7 +113,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-warning" data-dismiss="modal">
-                    Назад
+                    <{t 'Back'}>
                 </button>
             </div>
         </div>

@@ -12,7 +12,7 @@
 <{block name="module"}>
 
     <h1>
-        Избранные товары
+        <{t 'Featured_Products'}>
     </h1>
 
     <div class="row">
@@ -42,16 +42,16 @@
 
                         <{if $article.in_basket}>
                             <a href="#basket-modal" class="btn btn-warning" data-toggle="modal" data-target="#basket-modal">
-                                В корзине
+                                <{t 'In_the_basket'}>
                             </a>
                         <{else}>
                             <{basket_form article=$article return_url="#basket-modal"}>
                             <button type="submit" class="btn btn-success">
                                 <{if $article.price.is_price}>
-                                    Купить за
+                                    <{t 'Buy_for'}>
                                     <{$article.price.html}>
                                 <{else}>
-                                    Купить
+                                    <{t 'Buy'}>
                                 <{/if}>
                             </button>
                             <{/basket_form}>
@@ -59,12 +59,12 @@
 
                         <{if $article.in_comparison}>
                             <a href="<{comparison_url}>" class="btn btn-primary">
-                                Сравнить
+                                <{t 'Compare_one'}>
                             </a>
                         <{else}>
                             <{comparison_form article=$article}>
                             <button type="submit" class="btn btn-secondary">
-                                К сравнению
+                                <{t 'Compare'}>
                             </button>
                             <{/comparison_form}>
                         <{/if}>
@@ -72,13 +72,13 @@
                         <{if $article.in_favorites}>
                             <{favorites_form $article}>
                             <button type="submit" class="btn btn-warning">
-                                Удалить из избранного
+                                <{t 'Remove_from_favorites'}>
                             </button>
                             <{/favorites_form}>
                         <{else}>
                             <{favorites_form $article}>
                             <button type="submit" class="btn btn-primary">
-                                В избранное
+                                <{t 'To_favorites'}>
                             </button>
                             <{/favorites_form}>
                         <{/if}>

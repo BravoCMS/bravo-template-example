@@ -12,7 +12,7 @@
 <{block name="module"}>
 
     <h1>
-        Изменение адреса
+        <{t 'Change_of_address'}>
         <{$address.text|htmlspecialchars}>
     </h1>
 
@@ -31,49 +31,49 @@
             <{address_form $address}>
 
             <p>
-                Страна
+                <{t 'Country'}>
                 <br />
                 <input type="text" class="form-control" name="country" value="<{$address.country|escape}>" />
             </p>
 
             <p>
-                Город
+                <{t 'Town'}>
                 <br />
                 <input type="text" class="form-control" name="city" value="<{$address.city|escape}>" />
             </p>
 
             <p>
-                Улица
+                <{t 'Street'}>
                 <br />
                 <input type="text" class="form-control" name="street" value="<{$address.street|escape}>" />
             </p>
 
             <p>
-                Дом
+                <{t 'House'}>
                 <br />
                 <input type="text" class="form-control" name="number" value="<{$address.number|escape}>" />
             </p>
 
             <p>
-                Квартира
+                <{t 'Flat'}>
                 <br />
                 <input type="text" class="form-control" name="apartment" value="<{$address.apartment|escape}>" />
             </p>
 
             <p>
-                Почтовый индекс
+                <{t 'Postcode'}>
                 <br />
                 <input type="text" class="form-control" name="zip" value="<{$address.zip|escape}>" />
             </p>
 
             <p>
-                Комментарий
+                <{t 'Comment'}>
                 <br />
                 <textarea class="form-control" name="address"><{$address.address|htmlspecialchars}></textarea>
             </p>
 
             <button type="submit" class="btn btn-primary">
-                Сохранить
+                <{t 'Save'}>
             </button>
 
             <{/address_form}>
