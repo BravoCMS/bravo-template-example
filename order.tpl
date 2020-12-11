@@ -12,10 +12,10 @@
 <{block name="module"}>
     <{if $customer.is_guest}>
         <script>
-            jQuery(function ($) {
-                if (!$.cookie('order-form-sign-in-hidden')) {
+            require(['jquery', 'js-cookie', 'bootstrap'], function ($, cookie) {
+                if (!cookie.get('order-form-sign-in-hidden')) {
                     $('#order-form-sign-in').modal('show').on('hidden.bs.modal', function () {
-                        $.cookie('order-form-sign-in-hidden', 1);
+                        cookie.set('order-form-sign-in-hidden', '1', {path: '/'});
                     });
 
                     var isAlert = true;
@@ -108,7 +108,7 @@
 
                 <{if $layout_basket.phones|count}>
                     <script>
-                        jQuery(function ($) {
+                        require(['jquery'], function ($) {
                             $('.js-order-phone-select').on('change', function () {
                                 if ($(this).val() == '0') {
                                     $('.js-order-phone-text').removeClass('hide');
@@ -138,7 +138,7 @@
 
             <{if $layout_basket.delivery|count > 1}>
                 <script>
-                    jQuery(function ($) {
+                    require(['jquery'], function ($) {
                         $('.js-order-delivery-select').on('change', function () {
                             $('.js-order-delivery').addClass('hide');
                             $('.js-order-delivery-' + $(this).val()).removeClass('hide');
@@ -175,13 +175,56 @@
                 </div>
             <{/if}>
 
+            <script>
+                require(['jquery'], function ($) {
+                    $.ajax({
+                        url: "<{order_country_list_url}>",
+                        success: function (data) {
+                            if (data.country_list.length) {
+                                $('.js-order-country-text').addClass('hide').removeAttr('id');
+                                $('.js-order-country-select').removeClass('hide').attr('id', 'order-country');
+
+                                $(data.country_list).each(function (i, e) {
+                                    var selected = '';
+                                    if (e.default == 1) {
+                                        selected = ' selected="selected"';
+                                    }
+
+                                    $('.js-order-country-select').append('<option value="' + e.id + '" data-tax="' + e.tax + '" data-tax-rate="' + e.tax_rate + '"' + selected + '>' + e.name + '</option>');
+                                });
+                            }
+                        }
+                    });
+                    
+                    
+                });
+            </script>
+
+            <div class="form-group">
+                <label for="order-country">
+                    Страна
+                </label>
+                <select name="country_id" class="form-control js-order-country-select hide">
+                </select>
+                <input type="text" name="country" class="form-control js-order-country-text" id="order-country">
+            </div>
+
+            <div class="form-group">
+                <label for="order-region">
+                    Регион
+                </label>
+                <select name="region_id" class="form-control js-order-region-select hide">
+                </select>
+                <input type="text" name="region" class="form-control js-order-region-text" id="order-region">
+            </div>
+
             <div class="form-group">
                 <label>
                     Улица, номер дома, квартира, дополнительно...
                 </label>
                 <{if $layout_basket.address|count}>
                     <script>
-                        jQuery(function ($) {
+                        require(['jquery'], function ($) {
                             $('.js-order-address-select').on('change', function () {
                                 if ($(this).val() == '0') {
                                     $('.js-order-address-text').removeClass('hide');
