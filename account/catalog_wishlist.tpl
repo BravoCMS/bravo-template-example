@@ -12,12 +12,12 @@
 <{block name="module"}>
 
     <h1>
-        Список желаний
+        <{t 'Whish_List'}>
         <{$wishlist.name|htmlspecialchars}>
 
         <{if $wishlist.is_public}>
             <a href="<{$wishlist.public_url}>">
-                Публичный список
+                <{t 'Public_list'}>
             </a>
         <{/if}>
     </h1>
@@ -41,11 +41,11 @@
                 <input type="text" name="name" value="<{$wishlist.name|escape}>" />
                 <label>
                     <input type="checkbox" name="is_public" value="1"<{if $wishlist.is_public}> checked="checked"<{/if}> />
-                    Публичный список
+                    <{t 'Public_list'}>
                 </label>
 
                 <button type="submit" class="btn btn-primary">
-                    Сохранить
+                    <{t 'Save'}>
                 </button>
                 <{/catalog_wishlist_update_form}>
             </div>
@@ -64,16 +64,16 @@
 
                         <{if $article.in_basket}>
                             <a href="#basket-modal" class="btn btn-warning" data-toggle="modal" data-target="#basket-modal">
-                                В корзине
+                                <{t 'In_the_basket'}>
                             </a>
                         <{else}>
                             <{basket_form article=$article return_url="#basket-modal"}>
                             <button type="submit" class="btn btn-success">
                                 <{if $article.price.is_price}>
-                                    Купить за
+                                    <{t 'Buy_for'}>
                                     <{$article.price.html}>
                                 <{else}>
-                                    Купить
+                                    <{t 'Buy'}>
                                 <{/if}>
                             </button>
                             <{/basket_form}>
@@ -81,12 +81,12 @@
 
                         <{if $article.in_comparison}>
                             <a href="<{comparison_url}>" class="btn btn-primary">
-                                Сравнить
+                                <{t 'Compare_one'}>
                             </a>
                         <{else}>
                             <{comparison_form article=$article}>
                             <button type="submit" class="btn btn-secondary">
-                                К сравнению
+                                <{t 'Compare'}>
                             </button>
                             <{/comparison_form}>
                         <{/if}>
@@ -95,7 +95,7 @@
                         <input type="hidden" name="catalog_wishlist_id" value="<{$wishlist.id|escape}>" />
 
                         <button type="submit" class="btn btn-primary">
-                            Удалить из списка
+                            <{t 'Remove_from_list'}>
                         </button>
                         <{/catalog_wishlist_form}>
                     </div>

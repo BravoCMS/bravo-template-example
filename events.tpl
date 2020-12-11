@@ -41,9 +41,9 @@
                 <p>
                     <b>
                         <{$event.date.date|as_date:'long'}>
-                        с
+                        <{t 'from'}>
                         <{$event.date.time_from|as_time:'short'}>
-                        по
+                        <{t 'by'}>
                         <{$event.date.time_to|as_time:'short'}>
 
                         <!-- 
@@ -80,8 +80,8 @@
                 </a>
 
                 <{if $is_web_admin}>
-                    <a href="<{$event.panel_absolute_url}>" target="_blank" title="Редактирвать элемент в панели администратора">
-                        В админку
+                    <a href="<{$event.panel_absolute_url}>" target="_blank" title="<{t 'Edit_item_in_admin_panel'}>">
+                        <{t 'To_admin_panel'}>
                     </a>
                 <{/if}>
             </div>

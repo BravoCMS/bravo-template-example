@@ -35,15 +35,15 @@
             </h1>
 
             <{if $article.part_number}>
-                Артикул: <{$article.part_number|htmlspecialchars}><br />
+                <{t 'Product_code'}>: <{$article.part_number|htmlspecialchars}><br />
             <{/if}>
 
             <{if $article.barcode}>
-                Баркод: <{$article.barcode|htmlspecialchars}><br />
+                <{t 'Barcode'}>: <{$article.barcode|htmlspecialchars}><br />
             <{/if}>
 
             <{if $article.availability_text}>
-                Наличие: <{$article.availability_text|htmlspecialchars}><br />
+                <{t 'Availability'}>: <{$article.availability_text|htmlspecialchars}><br />
             <{/if}>
 
             <{if $article.price.price > 0}>
@@ -52,12 +52,12 @@
 
             <{basket_form article=$article return_url="#basket-modal"}>
             <button type="submit" class="btn btn-success">
-                В корзину
+                <{t 'Buy'}>
             </button>
             <{/basket_form}>
 
             <button class="btn btn-primary" data-toggle="modal" data-target="#callback-form">
-                Быстрый заказ
+                <{t 'Quick_order'}>
             </button>
 
             <div class="modal" role="dialog" id="callback-form">
@@ -65,7 +65,7 @@
                     <div class="modal-content">
                         <{callback_form}>
                         <div class="modal-header">
-                            <h5 class="modal-title">Быстрый заказ</h5>
+                            <h5 class="modal-title"><{t 'Quick_order'}></h5>
 
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
@@ -74,23 +74,23 @@
 
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="callback-form-name">Ваше имя</label>
+                                <label for="callback-form-name"><{t 'Your_name' }></label>
                                 <input type="text" class="form-control" name="name" id="callback-form-name" />
                             </div>
 
                             <div class="form-group">
-                                <label for="callback-form-phone">Телефон</label>
+                                <label for="callback-form-phone"><{t 'Telephone' }></label>
                                 <input type="text" class="form-control" name="phone" id="callback-form-phone" />
                             </div>
 
                             <div class="form-group">
-                                <textarea class="form-control" name="text" rows="10" aria-required="true" placeholder="Комментарий, пожелания, адрес"></textarea>
+                                <textarea class="form-control" name="text" rows="10" aria-required="true" placeholder="<{t 'Comment' }>"></textarea>
                             </div>
                         </div>
 
                         <div class="modal-footer">
-                            <button type="button" class="js-recaptcha-button btn btn-primary">Отправить</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                            <button type="button" class="js-recaptcha-button btn btn-primary"><{t 'Send' }></button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"><{t 'Cancel' }></button>
                         </div>
                         <{/callback_form}>
                     </div>
@@ -98,7 +98,7 @@
             </div>
 
             <{if $layout_contacts.catalog_phones}>
-                Либо позвоните нам:
+                <{t 'Or_call_us' }>:
                 <a href="tel:<{$layout_contacts.catalog_phones.0.number|escape}>">
                     <{$layout_contacts.catalog_phones.0.number|htmlspecialchars}>
                 </a>
@@ -142,10 +142,10 @@
                                 <{/if}>
 
                                 <{if $group.settings.code && $item.article.part_number}>
-                                    Артикул: <{$item.article.part_number|htmlspecialchars}><br />
+                                    <{t 'Vendor_code'}>: <{$item.article.part_number|htmlspecialchars}><br />
 
                                     <{if $item.article.barcode}>
-                                        Баркод: <{$item.article.barcode|htmlspecialchars}><br />
+                                        <{t 'Barcode'}>: <{$item.article.barcode|htmlspecialchars}><br />
                                     <{/if}>
                                 <{/if}>
 
@@ -160,7 +160,7 @@
                                 <{if $group.settings.buy}>
                                     <{basket_form article=$item.article return_url="#basket-modal"}>
                                     <button type="submit" class="btn btn-success">
-                                        В корзину
+                                        <{t 'Buy'}>
                                     </button>
                                     <{/basket_form}>
                                 <{/if}>
@@ -177,7 +177,7 @@
                 <{capture append="tabs_links"}>
                     <li class="nav-item">
                         <a class="nav-link<{if $is_tab_active}> active<{/if}>" data-toggle="tab" href="#article-all-tab">
-                            Все
+                            <{t 'All'}>
                         </a>
                     </li>
                 <{/capture}>
@@ -210,7 +210,7 @@
                         <{if $article.parameters.tab}>
                             <a class="btn btn-link" href="#" onClick="jQuery('#article-parameters-tab-button').tab('show');
                                     return false;">
-                                Все характеристики
+                                <{t 'All_characteristics'}>
                             </a>
                         <{/if}>
 
@@ -219,7 +219,7 @@
 
                             <a href="#" onClick="jQuery('#article-text-tab-button').tab('show');
                                     return false;">
-                                Читать описание
+                                <{t 'Read_description'}>
                             </a>
                         <{else}>
                             <p>
@@ -227,7 +227,7 @@
 
                                 <a href="#" onClick="jQuery('#article-text-tab-button').tab('show');
                                         return false;">
-                                    Читать описание
+                                    <{t 'Read_description'}>
                                 </a>
                             </p>
                         <{/if}>
@@ -241,7 +241,7 @@
                 <{capture append="tabs_links"}>
                     <li class="nav-item">
                         <a class="nav-link<{if $is_tab_active}> active<{/if}>" data-toggle="tab" href="#article-parameters-tab" id="article-parameters-tab-button">
-                            Характеристики
+                            <{t 'Specifications'}>
                         </a>
                     </li>
                 <{/capture}>
@@ -280,7 +280,7 @@
                 <{capture append="tabs_links"}>
                     <li class="nav-item">
                         <a class="nav-link<{if $is_tab_active}> active<{/if}>" data-toggle="tab" href="#article-text-tab" id="article-text-tab-button">
-                            Описание
+                            <{t 'General_description'}>
                         </a>
                     </li>
                 <{/capture}>
@@ -300,7 +300,7 @@
                     <{capture append="tabs_links"}>
                         <li class="nav-item">
                             <a class="nav-link<{if $is_tab_active}> active<{/if}>" data-toggle="tab" href="#article-discussion-tab">
-                                Отзывы
+                                <{t 'Reviews'}>(<{$discussion.thread|count}>)
                             </a>
                         </li>
                     <{/capture}>
@@ -309,11 +309,11 @@
                         <div class="tab-pane fade<{if $is_tab_active}> show active<{/if}>" id="article-discussion-tab">
                             <{if $discussion.is_guest_review || !$customer.is_guest}>
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#discussion-form" id="discussion-anchor">
-                                    Написать отзыв
+                                    <{t 'Write_a_feedback'}>
                                 </button>
                             <{else}>
                                 <a href="<{account_sign_in_url '#discussion-anchor'}>" class="btn btn-primary" id="discussion-anchor">
-                                    Авторизоваться чтобы написать отзыв
+                                    <{t 'Log_in_to'}>
                                 </a>
                             <{/if}>
 
@@ -328,11 +328,11 @@
                                             <{if $post.author}>
                                                 <{$post.author|htmlspecialchars}>
                                             <{else}>
-                                                Аноним
+                                                <{t "Anonymous" }>
                                             <{/if}>
 
                                             <{if $post.is_authorized}>
-                                                <b title="Авторизован">
+                                                <b title="<{t 'Authorized'}>">
                                                     A
                                                 </b>
                                             <{/if}>
@@ -340,11 +340,11 @@
 
                                         <{if $discussion.is_guest_review || !$customer.is_guest}>
                                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#discussion-form" data-post-id="<{$post.id}>">
-                                                Ответить на отзыв
+                                                <{t 'Reply_to_review' }>
                                             </button>
                                         <{else}>
                                             <a href="<{account_sign_in_url '#discussion-anchor'}>" class="btn btn-primary">
-                                                Авторизоваться чтобы ответить на отзыв
+                                                <{t "Log_in_to_reply" }>
                                             </a>
                                         <{/if}>
                                     </p>
@@ -356,14 +356,14 @@
 
                                         <{if $post.pros}>
                                             <p>
-                                                <b>Плюсы:</b><br />
+                                                <b><{t "Pros" }>:</b><br />
                                                 <{$post.pros|htmlspecialchars|nl2br}>
                                             </p>
                                         <{/if}>
 
                                         <{if $post.cons}>
                                             <p>
-                                                <b>Минусы:</b><br />
+                                                <b><{t 'Minuses' }>:</b><br />
                                                 <{$post.cons|htmlspecialchars|nl2br}>
                                             </p>
                                         <{/if}>
@@ -386,11 +386,11 @@
                                                 <{if $answer.author}>
                                                     <{$answer.author|htmlspecialchars}>
                                                 <{else}>
-                                                    Аноним
+                                                    <{t "Anonymous" }>
                                                 <{/if}>
 
                                                 <{if $answer.is_authorized}>
-                                                    <b title="Авторизован">
+                                                    <b title="<{t 'Authorized'}>">
                                                         A
                                                     </b>
                                                 <{/if}>
@@ -418,7 +418,7 @@
                     <{capture append="tabs_links"}>
                         <li class="nav-item">
                             <a class="nav-link" href="#discussion-form" data-toggle="modal" data-target="#discussion-form">
-                                Оставить отзыв
+                                <{t 'Give_feedback' }>
                             </a>
                         </li>
                     <{/capture}>
@@ -438,8 +438,8 @@
                     <div class="modal-dialog modal-sm" role="document">
                         <div class="modal-content">
                             <div class="alert alert-warning">
-                                <h4 class="alert-heading">Ваш отзыв добавлен</h4>
-                                <p>Спасибо!</p>
+                                <h4 class="alert-heading"><{t 'has_been_added' }></h4>
+                                <p><{t 'Thank' }>!</p>
                             </div>
                         </div>
                     </div>
@@ -460,11 +460,11 @@
                     <div class="modal-dialog modal-sm" role="document">
                         <div class="modal-content">
                             <div class="alert alert-warning">
-                                <h4 class="alert-heading">Ваш отзыв не добавлен</h4>
-                                <p>Повторите попытку позже.</p>
+                                <h4 class="alert-heading"><{t 'not_been_added' }></h4>
+                                <p><{t 'Please_try_again_later' }></p>
                                 <{if $reason}>
                                     <p>
-                                        Причина:<br />
+                                        <{t 'Cause' }>:<br />
                                         <{$reason|nl2br}>
                                     </p>
                                 <{/if}>
@@ -502,8 +502,8 @@
                             <input type="hidden" name="answer_to_discussion_post_id" id="discussion-form-post-id" value="0" />
 
                             <div class="modal-header">
-                                <h5 class="modal-title js-discussion-new">Написать отзыв</h5>
-                                <h5 class="modal-title js-discussion-respond">Ответить на отзыв</h5>
+                                <h5 class="modal-title js-discussion-new"><{t 'Write_a_feedback'}></h5>
+                                <h5 class="modal-title js-discussion-respond"><{t 'Reply_to_review' }></h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -511,62 +511,62 @@
 
                             <div class="modal-body">
                                 <div class="js-discussion-respond">
-                                    Ответить на отзыв
+                                    <{t 'Reply_to_review' }>
                                     <b class="js-discussion-respond-to"></b>:
                                     <blockquote class="js-discussion-respond-comment">
                                     </blockquote>
                                 </div>
 
                                 <div class="form-group">
-                                    <textarea class="form-control" name="comment" rows="10" aria-required="true" placeholder="Текст отзыва"></textarea>
+                                    <textarea class="form-control" name="comment" rows="10" aria-required="true" placeholder="<{t 'Review_text' }>"></textarea>
                                 </div>
 
                                 <{if $discussion.is_pros}>
                                     <div class="form-group js-discussion-new">
-                                        <label for="discussion-pros-field">Плюсы</label>
-                                        <textarea class="form-control" name="pros" id="discussion-pros-field" rows="5" aria-required="true" placeholder="Опишите плюсы"></textarea>
+                                        <label for="discussion-pros-field"><{t 'Pros' }></label>
+                                        <textarea class="form-control" name="pros" id="discussion-pros-field" rows="5" aria-required="true" placeholder="<{t 'Describe_the_pros' }>"></textarea>
                                     </div>
                                 <{/if}>
 
                                 <{if $discussion.is_cons}>
                                     <div class="form-group js-discussion-new">
-                                        <label for="discussion-cons-field">Минусы</label>
-                                        <textarea class="form-control" name="cons" id="discussion-cons-field" rows="5" aria-required="true" placeholder="Опишите минусы"></textarea>
+                                        <label for="discussion-cons-field"><{t 'Minuses' }></label>
+                                        <textarea class="form-control" name="cons" id="discussion-cons-field" rows="5" aria-required="true" placeholder="<{t 'Describe_the_cons' }>"></textarea>
                                     </div>
                                 <{/if}>
 
                                 <{if $customer.is_guest}>
                                     <div class="form-group">
-                                        <label for="discussion-author-field">Ваше Имя</label>
-                                        <input type="text" class="form-control" name="author" id="discussion-author-field" placeholder="Имя" />
+                                        <label for="discussion-author-field"><{t 'Your_name' }></label>
+                                        <input type="text" class="form-control" name="author" id="discussion-author-field" placeholder="<{t 'Name' }>" />
                                     </div>
                                 <{/if}>
 
                                 <div class="form-group js-discussion-new">
-                                    <label for="discussion-rating-field">Оценка</label>
+                                    <label for="discussion-rating-field"><{t 'Rate' }></label>
                                     <select class="form-control" name="rating" id="discussion-rating-field">
                                         <option value="1">
-                                            Унылое говно
+                                            <{t 'Sad_shit' }>
                                         </option>
                                         <option value="2">
-                                            Очень плохо
+                                            <{t 'Very_bad' }>
                                         </option>
                                         <option value="3">
-                                            Плохо
+                                            <{t 'poorly' }>
                                         </option>
                                         <option value="4">
-                                            Печально
+                                            <{t 'Sad' }>
                                         </option>
                                         <option value="5" selected="selected">
-                                            Сойдет
+                                            <{t 'Will_do' }>
                                         </option>
                                     </select>
                                 </div>
                             </div>
 
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary">Отправить</button>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                                <button type="submit" class="btn btn-primary"><{t 'Send' }></button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"><{t 'Cancel' }></button>
                             </div>
                             <{/discussion_form}>
                         </div>
@@ -608,7 +608,7 @@
             <{get_catalog_articles 'r1_articles' related_1=$article by=6}>
             <{if $r1_articles}>
                 <h2>
-                    Рекоммендуем
+                    <{t "Recommend"}>
                 </h2>
                 <div class="row">
                     <{foreach $r1_articles as $article}>
@@ -626,10 +626,10 @@
                             <{basket_form article=$article return_url="#basket-modal"}>
                             <button type="submit" class="btn btn-success">
                                 <{if $article.price.is_price}>
-                                    Купить за
+                                    <{t 'Buy_for'}>
                                     <{$article.price.html}>
                                 <{else}>
-                                    Купить
+                                    <{t 'Buy'}>
                                 <{/if}>
                             </button>
                             <{/basket_form}>
@@ -641,7 +641,7 @@
             <{get_catalog_articles 'r2_articles' related_2=$article by=6}>
             <{if $r2_articles}>
                 <h2>
-                    Так же купите
+                    <{t 'Also_buy'}>
                 </h2>
                 <div class="row">
                     <{foreach $r2_articles as $article}>
@@ -659,10 +659,10 @@
                             <{basket_form article=$article return_url="#basket-modal"}>
                             <button type="submit" class="btn btn-success">
                                 <{if $article.price.is_price}>
-                                    Купить за
+                                    <{t 'Buy_for'}>
                                     <{$article.price.html}>
                                 <{else}>
-                                    Купить
+                                    <{t 'Buy'}>
                                 <{/if}>
                             </button>
                             <{/basket_form}>
@@ -674,7 +674,7 @@
             <{get_catalog_articles 'r3_articles' related_3=$article by=6}>
             <{if $r3_articles}>
                 <h2>
-                    Похожие
+                    <{t 'Similar'}>
                 </h2>
                 <div class="row">
                     <{foreach $r3_articles as $article}>
@@ -692,10 +692,10 @@
                             <{basket_form article=$article return_url="#basket-modal"}>
                             <button type="submit" class="btn btn-success">
                                 <{if $article.price.is_price}>
-                                    Купить за
+                                    <{t 'Buy_for'}>
                                     <{$article.price.html}>
                                 <{else}>
-                                    Купить
+                                    <{t 'Buy'}>
                                 <{/if}>
                             </button>
                             <{/basket_form}>

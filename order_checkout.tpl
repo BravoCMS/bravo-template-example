@@ -6,14 +6,14 @@
 <{/block}>
 
 <{block name=title}>
-    Выберите вариант оплаты заказа
+    <{t 'Select_a_payment_option'}>
 <{/block}>
 
 <{block name="module"}>
     <div class="row">
         <div class="col-lg-12">
             <h1>
-                Номер вашего заказа #<{$order.id}>.
+                <{t 'Your_order_number'}> #<{$order.id}>.
             </h1>
             
         </div>

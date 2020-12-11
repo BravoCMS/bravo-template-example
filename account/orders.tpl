@@ -12,7 +12,7 @@
 <{block name="module"}>
 
     <h1>
-        Заказы
+        <{t "Orders"}>
     </h1>
 
     <div class="row">
@@ -31,7 +31,7 @@
                 <div class="row">
                     <div class="col">
                         <a href="<{$order.relative_url}>">
-                            <{t "Заказ {id} на сумму" id=$order.id}>
+                            <{t "Заказ #{id} на сумму" id=$order.id}>
                             <{price $order.summary_goods}>
                         </a>
                     </div>

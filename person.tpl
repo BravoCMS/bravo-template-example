@@ -60,14 +60,14 @@
 
                         <{if $post.pros}>
                             <p>
-                                <b>Плюсы:</b><br />
+                                <b><{t 'Pros'}>:</b><br />
                                 <{$post.pros|htmlspecialchars|nl2br}>
                             </p>
                         <{/if}>
 
                         <{if $post.cons}>
                             <p>
-                                <b>Минусы:</b><br />
+                                <b><{t 'Minuses'}>:</b><br />
                                 <{$post.cons|htmlspecialchars|nl2br}>
                             </p>
                         <{/if}>

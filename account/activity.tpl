@@ -12,7 +12,7 @@
 <{block name="module"}>
 
     <h1>
-        Что произошло
+        <{t 'What_happened'}>
     </h1>
 
     <div class="row">
@@ -35,7 +35,7 @@
                     <{if $activity.activity_type == 'discussion_post_added'}>
                         <div class="col-lg-12">
                             <{$activity.updated_at|as_datetime:'short'}>
-                            <{t "вы оставили комментарий к" }>
+                            <{t "you_left_a_comment_on" }>
 
                             <a href="<{$activity.element.relative_url}>" title="<{$activity.element.name|escape}>">
                                 <{$activity.element.short_name|htmlspecialchars}>
@@ -44,7 +44,7 @@
                     <{elseif $activity.activity_type == 'discussion_post_answered'}>
                         <div class="col-lg-12">
                             <{$activity.updated_at|as_datetime:'short'}>
-                            <{t "на ваш комментарий ответил другой пользователь" }>
+                            <{t "your_comment_was" }>
 
                             <{if $activity.other_customer_id}>
                                 (<a href="<{$activity.other_customer.relative_url}>" title="<{$activity.other_customer.name|escape}>">
@@ -53,7 +53,7 @@
                             <{elseif $activity.other_customer_name}>
                                 (<{$activity.other_customer_name}>)
                             <{else}>
-                                (Аноним)
+                                (<{t "Anonymous" }>)
                             <{/if}>
 
                             <a href="<{$activity.element.relative_url}>" title="<{$activity.element.name|escape}>">
@@ -63,7 +63,7 @@
                     <{elseif $activity.activity_type == 'discussion_post_published'}>
                         <div class="col-lg-12">
                             <{$activity.updated_at|as_datetime:'short'}>
-                            <{t "ваш комментарий опубликован" }>
+                            <{t "your_comment_has_been_published" }>
 
                             <a href="<{$activity.element.relative_url}>" title="<{$activity.element.name|escape}>">
                                 <{$activity.element.short_name|htmlspecialchars}>
@@ -72,7 +72,7 @@
                     <{elseif $activity.activity_type == 'discussion_post_discarded'}>
                         <div class="col-lg-12">
                             <{$activity.updated_at|as_datetime:'short'}>
-                            <{t "ваш комментарий заблокирован" }>
+                            <{t "your_comment_has_been_blocked" }>
 
                             <a href="<{$activity.element.relative_url}>" title="<{$activity.element.name|escape}>">
                                 <{$activity.element.short_name|htmlspecialchars}>
@@ -81,46 +81,46 @@
                     <{elseif $activity.activity_type == 'blog_article_added'}>
                         <div class="col-lg-12">
                             <{$activity.updated_at|as_datetime:'short'}>
-                            <{t "вы добавили статью" }>
+                            <{t "you_added_an_article" }>
 
                             <{if $activity.element.id}>
                                 <a href="<{$activity.element.relative_url}>" title="<{$activity.element.name|escape}>">
                                     <{$activity.element.short_name|htmlspecialchars}>
                                 </a>
                             <{else}>
-                                Не опубликована
+                                <{t 'Not_published'}>
                             <{/if}>
                         </div>
                     <{elseif $activity.activity_type == 'blog_article_published'}>
                         <div class="col-lg-12">
                             <{$activity.updated_at|as_datetime:'short'}>
-                            <{t "ваша статья опубликована" }>
+                            <{t "your_article_is_published" }>
 
                             <{if $activity.element.id}>
                                 <a href="<{$activity.element.relative_url}>" title="<{$activity.element.name|escape}>">
                                     <{$activity.element.short_name|htmlspecialchars}>
                                 </a>
                             <{else}>
-                                Не опубликована
+                                <{t 'Not_published'}>
                             <{/if}>
                         </div>
                     <{elseif $activity.activity_type == 'blog_article_discarded'}>
                         <div class="col-lg-12">
                             <{$activity.updated_at|as_datetime:'short'}>
-                            <{t "ваша статья заблокирована" }>
+                            <{t "your_article_is_blocked" }>
 
                             <{if $activity.element.id}>
                                 <a href="<{$activity.element.relative_url}>" title="<{$activity.element.name|escape}>">
                                     <{$activity.element.short_name|htmlspecialchars}>
                                 </a>
                             <{else}>
-                                Не опубликована
+                                <{t 'Not_published'}>
                             <{/if}>
                         </div>
                     <{elseif $activity.activity_type == 'blog_article_reviewed'}>
                         <div class="col-lg-12">
                             <{$activity.updated_at|as_datetime:'short'}>
-                            <{t "вашу статью прокомментировали" }>
+                            <{t "your_article_was_commented_on" }>
 
                             <{if $activity.other_customer_id}>
                                 (<a href="<{$activity.other_customer.relative_url}>" title="<{$activity.other_customer.name|escape}>">
@@ -129,7 +129,7 @@
                             <{elseif $activity.other_customer_name}>
                                 (<{$activity.other_customer_name}>)
                             <{else}>
-                                (Аноним)
+                                (<{t "Anonymous" }>)
                             <{/if}>
 
                             <{if $activity.element.id}>
@@ -137,7 +137,7 @@
                                     <{$activity.element.short_name|htmlspecialchars}>
                                 </a>
                             <{else}>
-                                Не опубликована
+                                <{t 'Not_published'}>
                             <{/if}>
                         </div>
                     <{elseif $activity.activity_type == 'discussion_post_liked'}>
@@ -145,7 +145,7 @@
                             <{$activity.updated_at|as_datetime:'short'}>
 
                             <{if $activity.count == 1}>
-                                <{t "ваш комментарий лайкнули"}>
+                                <{t "your_comment_was_liked"}>
                             <{else}>
                                 <{t "ваш комментарий собрал {n,plural,one{# лайк} few{# лайка} other{# лайков}}" n=$activity.count}>
                             <{/if}>
@@ -159,9 +159,9 @@
                             <{$activity.updated_at|as_datetime:'short'}>
 
                             <{if $activity.discussion_post_id}>
-                                <{t "вам понравился комментарий на странице:"}>
+                                <{t "you_liked_the_comment_on_the_page"}>
                             <{else}>
-                                <{t "вам понравилось:"}>
+                                <{t "did_you_like_it"}>
                             <{/if}>
 
                             <a href="<{$activity.element.relative_url}>" title="<{$activity.element.name|escape}>">
@@ -173,7 +173,7 @@
                             <{$activity.updated_at|as_datetime:'short'}>
 
                             <{if $activity.count == 1}>
-                                <{t "вашу статью лайкнули"}>
+                            <   {t "your_article_was_liked"}>
                             <{else}>
                                 <{t "ваша статья собрала {n,plural,one{# лайк} few{# лайка} other{# лайков}}" n=$activity.count}>
                             <{/if}>

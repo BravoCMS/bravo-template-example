@@ -12,7 +12,7 @@
 <{block name="module"}>
 
     <h1>
-        Список желаний
+        <{t 'Whish_List'}>
         <{$wishlist.name|htmlspecialchars}>
     </h1>
 
@@ -33,16 +33,16 @@
 
                         <{if $article.in_basket}>
                             <a href="#basket-modal" class="btn btn-warning" data-toggle="modal" data-target="#basket-modal">
-                                В корзине
+                                <{t 'In_the_basket'}>
                             </a>
                         <{else}>
                             <{basket_form article=$article return_url="#basket-modal"}>
                             <button type="submit" class="btn btn-success">
                                 <{if $article.price.is_price}>
-                                    Купить за
+                                    <{t 'Buy_for'}>
                                     <{$article.price.html}>
                                 <{else}>
-                                    Купить
+                                    <{t 'Buy'}>
                                 <{/if}>
                             </button>
                             <{/basket_form}>
@@ -50,12 +50,12 @@
 
                         <{if $article.in_comparison}>
                             <a href="<{comparison_url}>" class="btn btn-primary">
-                                Сравнить
+                                <{t 'Compare_one'}>
                             </a>
                         <{else}>
                             <{comparison_form article=$article}>
                             <button type="submit" class="btn btn-secondary">
-                                К сравнению
+                                <{t 'Compare'}>
                             </button>
                             <{/comparison_form}>
                         <{/if}>

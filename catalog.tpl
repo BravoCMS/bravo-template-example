@@ -28,7 +28,7 @@
 
                 <{if $filter.brands}>
                     <h4>
-                        Бренды
+                        <{t 'Brands'}>
                     </h4>
 
                     <nav class="nav flex-column nav-pills">
@@ -46,12 +46,12 @@
 
                 <{if $filter.price.low_value < $filter.price.high_value}>
                     <h4>
-                        Цена
+                        <{t 'Price'}>
                     </h4>
 
                     <div class="form-group">
                         <label for="price-from">
-                            От
+                            <{t 'From'}>
                             <{$filter.price.low_value|htmlspecialchars}>
                         </label>
 
@@ -60,7 +60,7 @@
 
                     <div class="form-group">
                         <label for="price-to">
-                            До
+                            <{t 'To'}>
                             <{$filter.price.high_value|htmlspecialchars}>
                         </label>
 
@@ -70,7 +70,7 @@
 
                 <{if $filter.availability}>
                     <h4>
-                        Наличие
+                        <{t 'Availability'}>
                     </h4>
 
                     <nav class="nav flex-column nav-pills">
@@ -108,10 +108,6 @@
                 <{/if}>
 
                 <div class="form-group">
-                    <label for="catalog-by">
-                        Выводить по
-                    </label>
-
                     <select name="by" class="form-control" id="catalog-by">
                         <option value="24"<{if $smarty.get.by == 24}> selected="selected"<{/if}>>
                             24
@@ -127,24 +123,24 @@
 
                 <div class="form-group">
                     <label for="catalog-order">
-                        Сортировать
+                        <{t 'Sort'}>
                     </label>
 
                     <select name="order" class="form-control" id="catalog-order">
                         <option value="price"<{if $smarty.get.order == 'price'}> selected="selected"<{/if}>>
-                            От дешевых к дорогим
+                            <{t 'Cheap_to_expensive'}>
                         </option>
                         <option value="price_desc"<{if $smarty.get.order == 'price_desc'}> selected="selected"<{/if}>>
-                            От дорогих к дешевым 
+                            <{t 'From_expensive_to_cheap'}> 
                         </option>
                         <option value="date_asc"<{if $smarty.get.order == 'date_asc'}> selected="selected"<{/if}>>
-                            От старых к новым
+                            <{t 'From_old_to_new'}>
                         </option>
                         <option value="date"<{if $smarty.get.order == 'date'}> selected="selected"<{/if}>>
-                            От новых к старым 
+                            <{t 'From_new_to_old'}> 
                         </option>
                         <option value="rating"<{if $smarty.get.order == 'rating'}> selected="selected"<{/if}>>
-                            По рейтингу
+                            <{t 'By_rating'}>
                         </option>
                     </select>
                 </div>
@@ -169,7 +165,7 @@
 
                                 <{if $article.in_basket}>
                                     <a href="#basket-modal" class="btn btn-warning" data-toggle="modal" data-target="#basket-modal">
-                                        В корзине
+                                        <{t 'In_the_basket'}>
                                     </a>
                                 <{else}>
                                     <{basket_form article=$article return_url="#basket-modal"}>
@@ -189,31 +185,31 @@
 
                                 <{if $article.in_comparison}>
                                     <a href="<{comparison_url}>" class="btn btn-primary">
-                                        Сравнить
+                                        <{t 'Compare_one'}>
                                     </a>
                                 <{else}>
                                     <{comparison_form article=$article}>
                                     <button type="submit" class="btn btn-secondary">
-                                        К сравнению
+                                        <{t 'Compare'}>
                                     </button>
                                     <{/comparison_form}>
                                 <{/if}>
 
                                 <{if $customer.is_guest}>
                                     <a href="<{account_sign_in_url}>">
-                                        <{t "Войдите чтобы добавить в избранное"}>
+                                        <{t 'Sign in to add to favorites'}>
                                     </a>
                                 <{else}>
                                     <{catalog_wishlist_form $article add}>
                                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".js-wishlist-modal-<{$article.id}>">
-                                        В список желаний
+                                        <{t 'Add to wishlist'}>
                                     </button>
 
                                     <div class="modal js-wishlist-modal-<{$article.id}>" tabindex="-1" role="dialog">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
                                                 <div class="modal-header">
-                                                    <h5 class="modal-title">Добавление в список желаний</h5>
+                                                    <h5 class="modal-title"><{t 'Add_to_Wishlist'}></h5>
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
@@ -232,7 +228,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="submit" class="btn btn-primary">
-                                                        Добавить
+                                                        <{t 'Add'}>
                                                     </button>
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                                 </div>
@@ -248,7 +244,7 @@
                     <{get_catalog_submenu "children" parent=$module}>
                     <{if $children}>
                         <h1>
-                            Подразделы
+                            <{t 'Subsections'}>
                         </h1>
                         <div class="row">
                             <{foreach $children as $child}>
@@ -274,7 +270,7 @@
                     <{get_catalog_articles "r1_articles" related_1=$module by=4 order='rand'}>
                     <{if $r1_articles}>
                         <h1>
-                            Суперпредложение!
+                            <{t 'Super_offer'}>!
                         </h1>
                         <div class="row">
                             <{foreach $r1_articles as $article}>
