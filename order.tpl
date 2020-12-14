@@ -191,12 +191,86 @@
                                     }
 
                                     $('.js-order-country-select').append('<option value="' + e.id + '" data-tax="' + e.tax + '" data-tax-rate="' + e.tax_rate + '"' + selected + '>' + e.name + '</option>');
+                                    $('.js-order-country-select').trigger('change');
                                 });
                             }
                         }
                     });
-                    
-                    
+
+                    $regionXhr = false;
+                    $(document).on('change', '.js-order-country-select', function () {
+                        var $option = $(this).find('option:selected');
+                        if ($option.length) {
+                            $('.js-order-region-select').html('').addClass('hide').removeAttr('id');
+                            $('.js-order-region-text').addClass('hide').removeAttr('id');
+                            applyTax($option.text(), $option.data('tax'), $option.data('tax-rate'));
+
+                            if ($regionXhr) {
+                                $regionXhr.abort();
+                            }
+                            $regionXhr = $.ajax({
+                                url: "<{order_region_list_url}>?country_id=" + $option.attr('value'),
+                                success: function (data) {
+                                    if (data.region_list.length) {
+                                        $('.js-order-region-select').removeClass('hide').attr('id', 'order-country');
+
+                                        $(data.region_list).each(function (i, e) {
+                                            var selected = '';
+                                            if (e.default == 1) {
+                                                selected = ' selected="selected"';
+                                            }
+
+                                            $('.js-order-region-select').append('<option value="' + e.id + '" data-tax="' + e.tax + '" data-tax-rate="' + e.tax_rate + '"' + selected + '>' + e.name + '</option>');
+                                            $('.js-order-region-select').trigger('change');
+                                        });
+                                    } else {
+                                        $('.js-order-region-text').removeClass('hide').attr('id', 'order-region');
+                                    }
+                                }
+                            });
+                        } else {
+                            $('.js-order-region-select').html('').addClass('hide').removeAttr('id');
+                            $('.js-order-region-text').removeClass('hide').attr('id', 'order-region');
+                            applyTax('', 0, 0);
+                        }
+                    });
+
+                    $(document).on('change', '.js-order-region-select', function () {
+                        var $option = $(this).find('option:selected');
+                        if ($option.length) {
+                            applyTax($option.text(), $option.data('tax'), $option.data('tax-rate'));
+                        } else {
+                            $('.js-order-country-select').trigger('change');
+                        }
+                    });
+
+                    function applyTax(taxRegionName, tax, taxRate) {
+                        tax = parseFloat(tax);
+                        tax = tax ? tax : 0;
+                        taxRate = parseFloat(taxRate);
+                        taxRate = taxRate ? taxRate : 0;
+                        var subTotal = parseFloat(<{$layout_basket.subtotal.price}>);
+                        var taxValue = Math.round(subTotal * taxRate * 100) / 100;
+
+                        var $summary = $('.js-order-tax-summary');
+                        if (taxRate > 0) {
+                            $summary.find('.js-order-tax-summary-percent').html(tax + '%');
+                            $summary.find('.js-order-tax-summary-value').html(taxValue);
+                            $summary.find('.js-order-tax-summary-text').html('(' + taxRegionName + ')');
+                        } else {
+                            $summary.find('.js-order-tax-summary-percent').html('');
+                            $summary.find('.js-order-tax-summary-value').html('');
+                            $summary.find('.js-order-tax-summary-text').html('');
+                        }
+
+                        $('.js-order-total-value').each(function () {
+                            if (taxValue) {
+                                $(this).html(taxValue + $(this).data('value'));
+                            } else {
+                                $(this).html($(this).data('text'));
+                            }
+                        });
+                    }
                 });
             </script>
 
@@ -204,24 +278,21 @@
                 <label for="order-country">
                     Страна
                 </label>
-                <select name="country_id" class="form-control js-order-country-select hide">
+                <select name="address[country_id]" class="form-control js-order-country-select hide">
                 </select>
-                <input type="text" name="country" class="form-control js-order-country-text" id="order-country">
+                <input type="text" name="address[country]" class="form-control js-order-country-text" id="order-country">
             </div>
 
             <div class="form-group">
                 <label for="order-region">
                     Регион
                 </label>
-                <select name="region_id" class="form-control js-order-region-select hide">
+                <select name="address[region_id]" class="form-control js-order-region-select hide">
                 </select>
-                <input type="text" name="region" class="form-control js-order-region-text" id="order-region">
+                <input type="text" name="address[region]" class="form-control js-order-region-text" id="order-region">
             </div>
 
             <div class="form-group">
-                <label>
-                    Улица, номер дома, квартира, дополнительно...
-                </label>
                 <{if $layout_basket.address|count}>
                     <script>
                         require(['jquery'], function ($) {
@@ -235,6 +306,9 @@
                         });
                     </script>
 
+                    <label>
+                        Улица, номер дома, квартира, дополнительно...
+                    </label>
                     <select name="address_id" class="form-control js-order-address-select">
                         <option value="0">
                             Указать другой адрес
@@ -253,6 +327,19 @@
                     </div>
                     <textarea name="address[address]" class="form-control hide js-order-address-text" rows="2"></textarea>
                 <{else}>
+                    <label for="order-zip">
+                        Индекс
+                    </label>
+                    <input type="text" name="address[zip]" class="form-control" id="order-zip" />
+
+                    <label for="order-city">
+                        Населенный пункт
+                    </label>
+                    <input type="text" name="address[city]" class="form-control" id="order-city" />
+
+                    <label>
+                        Улица, номер дома, квартира, дополнительно...
+                    </label>
                     <div class="input-group">
                         <input type="text" name="address[street]" class="form-control" style="width: 50%;" />
                         <input type="text" name="address[number]" class="form-control" style="width: 25%;" />
@@ -322,6 +409,20 @@
                 </div>
             </div>
 
+            <div class="row js-order-tax-summary">
+                <div class="col-lg-4" title="Подсчитанная сумма приблизительна, финальный расчет может немного отличаться!">
+                    Налог*
+                    <span class="js-order-tax-summary-percent">
+                    </span>
+                    <span class="js-order-tax-summary-text">
+                    </span>
+                </div>
+                <div class="col-lg-4">
+                </div>
+                <div class="col-lg-4 js-order-tax-summary-value">
+                </div>
+            </div>
+
             <{foreach $layout_basket.delivery as $delivery}>
                 <{if $delivery.is_show}>
                     <div class="row<{if !$delivery@first}> hide<{/if}> js-order-delivery js-order-delivery-<{$delivery.id}>">
@@ -341,7 +442,7 @@
                         </div>
                         <div class="col-lg-4">
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-lg-4 js-order-total-value" data-value="<{$delivery.total.price|escape}>" data-text="<{$delivery.total.html|escape}>">
                             <{$delivery.total.html}>
                         </div>
                     </div>

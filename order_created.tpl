@@ -27,70 +27,61 @@
                 <label>
                     Статус заказа
                 </label>
-                <input type="text" class="form-control" readonly="readonly" value="" />
+                <input type="text" class="form-control" readonly="readonly" value="<{$order.status_translation|escape}>" />
             </div>
 
             <div class="form-group">
                 <label>
                     Статус оплаты заказа
                 </label>
-                <input type="text" class="form-control" readonly="readonly" value="" />
+                <input type="text" class="form-control" readonly="readonly" value="<{$order.payment_status_translation|escape}>" />
             </div>
 
             <div class="form-group">
                 <label>
                     Имя
                 </label>
-                <input type="text" class="form-control" readonly="readonly" value="" />
+                <input type="text" class="form-control" readonly="readonly" value="<{$order.customer_name|escape}>" />
             </div>
 
             <div class="form-group">
                 <label for="order-last-name">
                     Фамилия
                 </label>
-                <input type="text" name="customer[last_name]" class="form-control" id="order-last-name" />
+                <input type="text" class="form-control" readonly="readonly" value="<{$order.customer_last_name|escape}>" />
             </div>
 
             <div class="form-group">
                 <label for="order-email">
                     Почта
                 </label>
-                <input type="email" name="customer[email]" class="form-control" id="order-email" />
+                <input type="text" class="form-control" readonly="readonly" value="<{$order.customer_display_email|escape}>" />
             </div>
 
             <div class="form-group">
                 <label>
                     Телефон
                 </label>
-
-                <input type="text" name="phone" class="form-control" readonly="readonly" value="<{$order.phone|escape}>" />
+                <input type="text" class="form-control" readonly="readonly" value="<{$order.phone|escape}>" />
             </div>
 
-            <div class="form-group">
-                <label for="order-delivery">
-                    Способ доставки
-                </label>
-                <select name="delivery_id" class="form-control js-order-delivery-select" id="order-delivery">
-                    <{foreach $layout_basket.delivery as $delivery}>
-                        <option value="<{$delivery.id}>">
-                            <{$delivery.name|htmlspecialchars}>
-                        </option>
-                    <{/foreach}>
-                </select>
-            </div>
+            <{if $order.delivery_type_name}>
+                <div class="form-group">
+                    <label>
+                        Способ доставки
+                    </label>
+                    <input type="text" class="form-control" readonly="readonly" value="<{$order.delivery_type_name|escape}>" />
+                </div>
+            <{/if}>
 
-            <div class="form-group">
-                <label for="order-payment">
-                    Способ оплаты
-                </label>
-                <select name="payment_id" class="form-control" id="order-payment">
-                    <{foreach $layout_basket.payment as $payment}>
-                        <option value="<{$payment.id}>">
-                            <{$payment.name|htmlspecialchars}>
-                        </option>
-                    <{/foreach}>
-                </select>
-            </div>
+            <{if $order.payment_type_name}>
+                <div class="form-group">
+                    <label>
+                        Способ оплаты
+                    </label>
+                    <input type="text" class="form-control" readonly="readonly" value="<{$order.payment_type_name|escape}>" />
+                </div>
+            <{/if}>
 
             <{if $order.zip}>
                 <div class="form-group">
@@ -115,7 +106,7 @@
                     <label>
                         Регион
                     </label>
-                    <input type="text" class="form-control" readonly="readonly" value="<{$order.country|escape}>" />
+                    <input type="text" class="form-control" readonly="readonly" value="<{$order.region|escape}>" />
                 </div>
             <{/if}>
 
@@ -187,10 +178,24 @@
                 </div>
             </div>
 
+            <{if $order.summary_taxes.price > 0}>
+                <div class="row">
+                    <div class="col-lg-4">
+                        Налог
+                        <{$order.summary_tax_rate * 100}>%
+                    </div>
+                    <div class="col-lg-4">
+                    </div>
+                    <div class="col-lg-4">
+                        <{$order.summary_taxes.html}>
+                    </div>
+                </div>
+            <{/if}>
+
             <{if $order.summary_delivery && $order.summary_delivery.price > 0}>
                 <div class="row">
                     <div class="col-lg-4">
-                        <{$delivery.name|htmlspecialchars}>
+                        <{$order.delivery_type_name|htmlspecialchars}>
                     </div>
                     <div class="col-lg-4">
                     </div>
