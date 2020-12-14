@@ -1,4 +1,9 @@
 {
     "Загрузить": "Download",
-    "Скачать": "Upload"
+    "Скачать": "Upload",
+    "All_search_results": "All search results",
+    "Всего голосов:": "Total Votes:",
+    "Проголосовать": "Vote",
+    "Просмотров:": "Views:",
+    "Необходимо авторизоваться": "Login required"
 }

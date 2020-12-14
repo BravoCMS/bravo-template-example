@@ -8,18 +8,18 @@
                 <button type="button" class="close">
                     <span aria-hidden="true"><i class="material-icons ic_highlight_off"></i></span>
                 </button>
-                <h4 class="modal-title">Загрузка и выбор фото</h4>
+                <h4 class="modal-title"><{t 'Uploading_and_selecting_photos'}></h4>
             </div>
             <div class="modal-body">
                 <div class="modal-body-content">
                     <div class="js-attachment-msg js-attachment-msg-default hide alert alert-info">
-                        Чтобы выбрать другое фото, кликните на другое фото
+                        <{t 'To_select_another_photo'}>
                     </div>
                     <div class="js-attachment-msg js-attachment-msg-not-selected hide alert alert-warning">
-                        Выберите фото, кликнув по нему
+                        <{t 'Select_a_photo_by_clicking_on_it'}>
                     </div>
                     <div class="js-attachment-msg js-attachment-msg-no-photo hide alert alert-danger">
-                        У вас нет фото, загрузите сначала фото
+                        <{t 'You_have_no_photo_upload_photo_first'}>
                     </div>
                     <div class="attachment-area">
                         <div class="attachment-wrapper">
@@ -36,33 +36,33 @@
             <div class="modal-footer">
                 <div class="form-inline" style="padding-bottom: 15px;">
                     <div class="form-group">
-                        <input type="text" class="form-control js-url-upload-field" placeholder="Загрузить файл по URL" />
+                        <input type="text" class="form-control js-url-upload-field" placeholder="<{t 'Upload_file_by_URL'}>" />
 
                         <button type="button" class="btn btn-success hide js-url-upload-button">
-                            Загрузить
+                            <{t 'Загрузить'}>
                         </button>
                     </div>
 
                     <label for="upload-button<{$smarty.get.jsonAttachment}>-<{$smarty.get.callback}>" class="btn btn-success btn-large">
-                        Выбрать файлы для загрузки
+                        <{t 'Select_files_to_upload'}>
                     </label>
                 </div>
 
                 <button type="button" class="save btn btn-primary js-add-selected-photo">
                     OK 
-                    <span class="js-show-only-multiple hide">(Выбрано фотографий: <span class="js-select-img-count"></span>)</span>
+                    <span class="js-show-only-multiple hide">(<{t 'Selected_photos'}>: <span class="js-select-img-count"></span>)</span>
                 </button>
 
                 <button type="button" class="js-select-all-img js-show-only-multiple btn btn-info hide">
-                    Выбрать все
+                    <{t 'Choose_all'}>
                 </button>
 
                 <button type="button" class="js-unselect-all-img js-show-only-multiple btn btn-danger hide">
-                    Снять выделение со всех
+                    <{t 'Unselect_all'}>
                 </button>
 
                 <button type="button" class="btn btn-warning" data-dismiss="modal">
-                    Отмена
+                    <{t 'Cancel'}>
                 </button>
             </div>
         </div>

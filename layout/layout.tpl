@@ -332,7 +332,7 @@
 
                 <input type="search" name="q" value="<{$smarty.get.q|escape}>" class="form-control mr-sm-2 js-search-form-input" placeholder="Поиск">
                 <button type="submit" class="btn btn-outline-success my-2 my-sm-0">
-                    Найти
+                    <{t 'Search'}>
                 </button>
                 <{/search_form}>
             </div>
@@ -342,7 +342,7 @@
         <{if $catalog_menu|count}>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="navbar-brand h1">
-                    <{t "Меню каталога"}>
+                    <{t "Catalog_menu"}>
                 </div>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#catalog-menu-content" aria-controls="catalog-menu-content" aria-expanded="false" aria-label="Toggle catalog menu">
@@ -452,7 +452,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#create-site-modal" data-toggle="modal" data-target="#create-site-modal">
-                            Хочу такой-же сайт
+                            <{t 'I_want_the_same_site'}>
                         </a>
                     </li>
                 </ul>
@@ -467,7 +467,7 @@
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Корзина</h5>
+                        <h5 class="modal-title"><{t 'Your_cart'}></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -527,7 +527,7 @@
                             <{t "Оформить заказ на {count,plural, one{# товар} few{# товара} many{# товаров} other{# товаров}} общей стоимостью {sum}" count=$layout_basket.count sum=$layout_basket.subtotal.html}>
                         </a>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                            Продолжить покупки
+                            <{t 'Continue_shopping'}>
                         </button>
                     </div>
                 </div>
@@ -540,7 +540,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Хочу такой-же сайт</h5>
+                    <h5 class="modal-title"><{t 'I_want_the_same_site'}></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -560,32 +560,32 @@
                             <{$user.display_name|htmlspecialchars}>
 
                             <a href="<{user_update_url return_url='#create-site-modal'}>">
-                                Редактировать
+                                <{t "Edit"}>
                             </a>
                             <a href="<{user_sign_in_url return_url='#create-site-modal' auth}>">
-                                Сменить
+                                <{t "Change"}>
                             </a>
                             <a href="<{user_sign_out_url return_url='#create-site-modal'}>">
-                                Выйти
+                                <{t "Выйти"}>
                             </a>
                         </p>
 
                         <{get_user_websites 'websites' 'pagination'}>
                         <{if $websites}>
                             <p>
-                                Ваши сайты:<br />
+                                <{t "Your_sites"}>:<br />
                                 <{foreach $websites as $website}>
                                     <{user_website_manage_form $website}>
                                     <a href="<{$website.absolute_url}>" target="_blank">
                                         <{if $website.name}>
                                             <{$website.name|htmlspecialchars}>
                                         <{else}>
-                                            Без названия
+                                            <{t "Untitled"}>
                                         <{/if}>
                                     </a>
 
                                     <button type="submit">
-                                        В админку
+                                        <{t 'To_admin_panel'}>
                                     </button>
                                     <{/user_website_manage_form}>
                                 <{/foreach}>

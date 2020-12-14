@@ -17,7 +17,7 @@
 
 <{block name="module"}>
     <h1>
-        Добавить статью
+        <{t 'Add_article'}>
     </h1>
 
     <div class="row">
@@ -46,7 +46,7 @@
                 <{foreach $languages as $language}>
                     <div class="js-l-selectee<{if $language.language_id != $active_language_id}> hide<{/if}>" code="<{$language.code}>">
                         <label for="name_<{$language.language_id}>">
-                            Название
+                            <{t 'Name_a'}>
                         </label>
                         <div class="input-group">
                             <input type="text" class="form-control" name="article_translation[<{$language.language_id}>][name]" id="name_<{$language.language_id}>" value="<{$article_translation[$language.language_id].name|escape}>" />
@@ -58,7 +58,7 @@
 
             <div class="form-group">
                 <label for="photo_id">
-                    Фото
+                    <{t 'Photo'}>
                 </label>
                 <div class="input-group">
                     <input id="test" type="hidden" name="article[photo_id]" value="<{$article.photo_id|escape}>" data-toggle="fileManager" data-url="<{$article.file_manager_url|escape}>" data-control=".js-blog-cover" />
@@ -71,7 +71,7 @@
                 <{foreach $languages as $language}>
                     <div class="js-l-selectee<{if $language.language_id != $active_language_id}> hide<{/if}>" code="<{$language.code}>">
                         <label for="intro_<{$language.language_id}>">
-                            Краткое описание
+                            <{t 'Short_description'}>
                         </label>
                         <div class="input-group">
                             <textarea class="form-control" name="article_translation[<{$language.language_id}>][intro]" id="intro_<{$language.language_id}>"><{$article_translation[$language.language_id].intro|htmlspecialchars}></textarea>
@@ -85,7 +85,7 @@
                 <{foreach $languages as $language}>
                     <div class="js-l-selectee<{if $language.language_id != $active_language_id}> hide<{/if}>" code="<{$language.code}>">
                         <label for="text_<{$language.language_id}>">
-                            Статья
+                            <{t 'Article'}>
                         </label>
                         <div class="input-group">
                             <textarea class="form-control" name="article_translation[<{$language.language_id}>][text]" id="text_<{$language.language_id}>"><{$article_translation[$language.language_id].text|htmlspecialchars}></textarea>
@@ -96,11 +96,11 @@
             </div>
 
             <button type="submit" class="btn btn-primary">
-                Сохранить
+                <{t 'Save'}>
             </button>
 
             <a href="<{$back_url}>" class="btn btn-secondary">
-                Назад
+                <{t 'Back'}>
             </a>
             <{/form}>
         </div>

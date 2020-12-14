@@ -6,7 +6,7 @@
 <{/block}>
 
 <{block name=title}>
-    Оформление заказа
+    <{t 'Checkout'}>
 <{/block}>
 
 <{block name="module"}>
@@ -35,7 +35,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">
-                            Войдите для быстрого оформления заказа
+                            <{t 'Login_for_quick_checkout'}>
                         </h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -43,17 +43,17 @@
                     </div>
                     <div class="modal-body">
                         <div class="alert alert-warning hide js-order-form-sign-in-alert">
-                            <h4 class="alert-heading">Уверены что не хотите зарегистрироваться?</h4>
-                            <p>Нажмите еще раз, чтобы продолжить.</p>
+                            <h4 class="alert-heading"><{t 'want_to_register'}></h4>
+                            <p><{t 'Click_again_to'}></p>
                         </div>
-                        Регистрация с помощью социальных сетей займет у Вас 10 секунд. А мы сможем информировать Вас о статусе Вашего заказа.
+                        <{t 'reg_social'}>
                     </div>
                     <div class="modal-footer">
                         <a href="<{account_sign_in_url}>" class="btn btn-success">
                             <{t "Войти"}>
                         </a>
                         <a class="btn btn-outline-secondary" data-dismiss="modal">
-                            Оформить заказ без регистрации
+                            <{t 'Checkout_without_registration'}>
                         </a>
                     </div>
                 </div>
@@ -68,33 +68,33 @@
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
                         <a class="nav-link active">
-                            Без регистрации
+                            <{t 'I_m_new'}><br><{t 'buyer'}>		
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<{account_sign_in_url}>">
-                            Быстрый вход
+                            <{t 'I_m_already_here'}><br><{t 'bought'}>
                         </a>
                     </li>
                 </ul>
 
                 <div class="form-group">
                     <label for="order-name">
-                        Имя
+                        <{t 'Name' }>
                     </label>
                     <input type="text" name="customer[name]" class="form-control" id="order-name" />
                 </div>
 
                 <div class="form-group">
                     <label for="order-last-name">
-                        Фамилия
+                        <{t 'Surname'}>*
                     </label>
                     <input type="text" name="customer[last_name]" class="form-control" id="order-last-name" />
                 </div>
 
                 <div class="form-group">
                     <label for="order-email">
-                        Почта
+                        <{t 'Mail'}>*
                     </label>
                     <input type="email" name="customer[email]" class="form-control" id="order-email" />
                 </div>
@@ -103,7 +103,7 @@
 
             <div class="form-group">
                 <label>
-                    Телефон
+                    <{t 'Telephone'}>*
                 </label>
 
                 <{if $layout_basket.phones|count}>
@@ -148,7 +148,7 @@
 
                 <div class="form-group">
                     <label for="order-delivery">
-                        Способ доставки
+                        <{t 'Delivery_method'}>
                     </label>
                     <select name="delivery_id" class="form-control js-order-delivery-select" id="order-delivery">
                         <{foreach $layout_basket.delivery as $delivery}>
@@ -163,7 +163,7 @@
             <{if $layout_basket.payment|count > 1}>
                 <div class="form-group">
                     <label for="order-payment">
-                        Способ оплаты
+                        <{t 'Payment_method'}>
                     </label>
                     <select name="payment_id" class="form-control" id="order-payment">
                         <{foreach $layout_basket.payment as $payment}>
@@ -307,11 +307,11 @@
                     </script>
 
                     <label>
-                        Улица, номер дома, квартира, дополнительно...
+                        <{t 'Street_house_number_apartment_additionally'}>
                     </label>
                     <select name="address_id" class="form-control js-order-address-select">
                         <option value="0">
-                            Указать другой адрес
+                            <{t 'Specify_a_different_address'}>
                         </option>
                         <{foreach $layout_basket.address as $address}>
                             <option value="<{$address.id}>"<{if $address@first}> selected="selected"<{/if}>>
@@ -321,11 +321,11 @@
                     </select>
 
                     <div class="input-group hide js-order-address-text">
-                        <input type="text" name="address[street]" class="form-control" style="width: 50%;" />
-                        <input type="text" name="address[number]" class="form-control" style="width: 25%;" />
-                        <input type="text" name="address[apartment]" class="form-control" style="width: 25%;" />
+                        <input type="text" name="address[street]" placeholder="<{t 'Street2'}>" class="form-control" style="width: 50%;" />
+                        <input type="text" name="address[number]" placeholder="<{t 'Number'}>" class="form-control" style="width: 25%;" />
+                        <input type="text" name="address[apartment]" placeholder="<{t 'Apartment'}>" class="form-control" style="width: 25%;" />
                     </div>
-                    <textarea name="address[address]" class="form-control hide js-order-address-text" rows="2"></textarea>
+                    <textarea name="address[address]" placeholder="<{t 'Address'}> class="form-control hide js-order-address-text" rows="2"></textarea>
                 <{else}>
                     <label for="order-zip">
                         Индекс
@@ -341,23 +341,23 @@
                         Улица, номер дома, квартира, дополнительно...
                     </label>
                     <div class="input-group">
-                        <input type="text" name="address[street]" class="form-control" style="width: 50%;" />
-                        <input type="text" name="address[number]" class="form-control" style="width: 25%;" />
-                        <input type="text" name="address[apartment]" class="form-control" style="width: 25%;" />
+                        <input type="text" name="address[street]" placeholder="<{t 'Street2'}>" class="form-control" style="width: 50%;" />
+                        <input type="text" name="address[number]" placeholder="<{t 'Number'}>" class="form-control" style="width: 25%;" />
+                        <input type="text" name="address[apartment]" placeholder="<{t 'Apartment'}>" class="form-control" style="width: 25%;" />
                     </div>
-                    <textarea name="address[address]" class="form-control" rows="2"></textarea>
+                    <textarea name="address[address]" placeholder="<{t 'Address'}> class="form-control" rows="2"></textarea>
                 <{/if}>
             </div>
 
             <div class="form-group">
                 <label for="order-comment">
-                    Комментарий к заказу
+                    <{t 'Comment_on_the_order'}>
                 </label>
                 <textarea name="comment" class="form-control" id="order-comment" rows="5"></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary">
-                <{t "Подтвердить"}>
+                <{t "Оформить заказ"}>
             </button>
             <{/order_form}>
         </div>

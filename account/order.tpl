@@ -12,7 +12,7 @@
 <{block name="module"}>
 
     <h1>
-        <{t "Заказ {id}" id=$order.id}>
+        <{t "Заказ #{id}" id=$order.id}>
         <{$order.status_translation}>
 
         <{if $order.is_cancel}>
@@ -71,7 +71,7 @@
 
             <div class="row">
                 <div class="col">
-                    Сумма
+                    <{t 'Total'}>
                 </div>
                 <div class="col">
                 </div>
@@ -85,7 +85,7 @@
             <{if $order.summary_promo_discount > 0}>
                 <div class="row">
                     <div class="col">
-                        Скидка
+                        <{t 'Discount'}>
                     </div>
                     <div class="col">
                     </div>
@@ -100,7 +100,7 @@
             <{if $order.summary_taxes > 0}>
                 <div class="row">
                     <div class="col">
-                        Налог
+                        <{t 'Tax'}>
                     </div>
                     <div class="col">
                     </div>
@@ -115,7 +115,7 @@
 
             <div class="row">
                 <div class="col">
-                    Доставка
+                    <{t 'Delivery_a'}>
                 </div>
                 <div class="col">
                 </div>
@@ -128,7 +128,7 @@
 
             <div class="row">
                 <div class="col">
-                    Итого
+                    <{t 'Итого'}>
                 </div>
                 <div class="col">
                 </div>

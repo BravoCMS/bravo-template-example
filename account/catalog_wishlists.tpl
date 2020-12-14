@@ -12,7 +12,7 @@
 <{block name="module"}>
 
     <h1>
-        Списки желаний
+        <{t 'Wishlists'}>
     </h1>
 
     <div class="row">
@@ -34,7 +34,7 @@
                             <{if $wishlist.id}>
                                 <{$wishlist.name|htmlspecialchars}>
                             <{else}>
-                                Не в списке
+                                <{t 'Not_on_the_list'}>
                             <{/if}>
                             (<{$wishlist.items_count|htmlspecialchars}>)
                         </a>

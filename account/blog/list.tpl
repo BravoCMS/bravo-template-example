@@ -12,7 +12,7 @@
 <{block name="module"}>
 
     <h1>
-        Статьи
+        <{t 'Articles_a'}>
     </h1>
 
     <div class="row">
@@ -28,7 +28,7 @@
 
         <div class="col-lg-9">
             <a href="<{$create_url}>" class="btn btn-primary">
-                Добавить
+                <{t 'Add'}>
             </a>
 
             <{foreach $articles as $article}>
@@ -40,13 +40,13 @@
                     </div>
                     <div class="col">
                         <{if $article.is_published}>
-                            Опубликована
+                            <{t 'Published'}>
 
                             <a href="<{$article.relative_url}>" target="_blank">
-                                Смотреть
+                                <{t 'Look'}>
                             </a>
                         <{else}>
-                            Не опубликована,
+                            <{t 'Not_published'}>,
                             <{$article.customer_status_name|htmlspecialchars}><{if $article.customer_status_message}>, <{$article.customer_status_message|htmlspecialchars}><{/if}>
                         <{/if}>
                     </div>

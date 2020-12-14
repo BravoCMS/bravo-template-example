@@ -16,8 +16,8 @@
     </h1>
 
     <{if $is_web_admin}>
-        <a href="<{$event.panel_absolute_url}>" target="_blank" title="Редактирвать элемент в панели администратора">
-            В админку
+        <a href="<{$event.panel_absolute_url}>" target="_blank" title="<{t 'Edit_item_in_admin_panel'}>">
+            <{t 'To_admin_panel'}>
         </a>
     <{/if}>
 
@@ -26,14 +26,14 @@
     <{/if}>
 
     <p>
-        Даты проведения:
+        <{t 'Dates'}>:
     </p>
     <{foreach $event.dates as $date}>
         <p<{if !$date.is_past}> style="font-weight: bold;"<{/if}>>
             <{$date.date|as_date:'long'}>
-            с
+            <{t 'from'}>
             <{$date.time_from|as_time:'short'}>
-            по
+            <{t 'by'}>
             <{$date.time_to|as_time:'short'}>
         </p>
     <{/foreach}>

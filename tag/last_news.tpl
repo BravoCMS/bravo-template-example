@@ -135,7 +135,7 @@
                                 <{if $post.author}>
                                     <{$post.author|htmlspecialchars}>
                                 <{else}>
-                                    Аноним
+                                    <{t "Anonymous" }>
                                 <{/if}>
 
                                 <{if $post.is_authorized}>

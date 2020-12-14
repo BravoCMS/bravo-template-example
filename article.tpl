@@ -55,7 +55,7 @@
 
     <{if $article.tags}>
         <p>
-            Теги:
+            <{t 'Tags'}>:
             <{foreach $article.tags as $tag}>
                 <a href="<{$tag.relative_url}>">
                     <{$tag.name|htmlspecialchars}>
@@ -65,24 +65,30 @@
     <{/if}>
 
     <{$article.text}>
-
+    
     <{get_blog_articles 'related_tag_articles' related_tag=$article unique}>
-    По теме<br />
-    <{foreach $related_tag_articles as $related_tag_article}>
-        <{$related_tag_article.name|htmlspecialchars}><br />
-    <{/foreach}>
+    <{if $related_tag_articles}>
+        <{t 'On_this_topic'}><br />
+        <{foreach $related_tag_articles as $related_tag_article}>
+            <{$related_tag_article.name|htmlspecialchars}><br />
+        <{/foreach}>
+    <{/if}>
 
     <{get_blog_articles 'related_page_articles' related_page=$article unique}>
-    Еще в разделе<br />
-    <{foreach $related_page_articles as $related_page_article}>
-        <{$related_page_article.name|htmlspecialchars}><br />
-    <{/foreach}>
+    <{if $related_page_articles}>
+        <{t 'More_in_the_section'}><br />
+        <{foreach $related_page_articles as $related_page_article}>
+            <{$related_page_article.name|htmlspecialchars}><br />
+        <{/foreach}>
+    <{/if}>
 
     <{get_blog_articles 'related_last_articles' related_last=$article unique}>
-    Последнее на сайте<br />
-    <{foreach $related_last_articles as $related_last_article}>
-        <{$related_last_article.name|htmlspecialchars}><br />
-    <{/foreach}>
+    <{if $related_last_articles}>
+        <{t 'Last_on_site'}><br />
+        <{foreach $related_last_articles as $related_last_article}>
+            <{$related_last_article.name|htmlspecialchars}><br />
+        <{/foreach}>
+    <{/if}>
 
     <{get_discussion "discussion" "pagination" element=$article page_query}>
     <{include 'misc/discussion.tpl'}>

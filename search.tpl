@@ -31,10 +31,10 @@
                     <{basket_form article=$item return_url="#basket-modal"}>
                     <button type="submit" class="btn btn-success">
                         <{if $item.price.is_price}>
-                            Купить за
+                            <{t 'Buy_for'}>
                             <{$item.price.html}>
                         <{else}>
-                            Купить
+                            <{t 'Buy'}>
                         <{/if}>
                     </button>
                     <{/basket_form}>
@@ -42,7 +42,7 @@
             </div>
         <{foreachelse}>
             <div class="col-lg-12">
-                Ничего не найдено
+                <{t 'Nothing_found'}>
             </div>
         <{/foreach}>
 

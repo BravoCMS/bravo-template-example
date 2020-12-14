@@ -6,7 +6,7 @@
 <{/block}>
 
 <{block name=title}>
-    Выберите вариант оплаты заказа
+    <{t 'Select_a_payment_option'}>
 <{/block}>
 
 <{block name="module"}>

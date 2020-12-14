@@ -18,32 +18,32 @@
                 <{elseif $answer.author}>
                     <{$answer.author|htmlspecialchars}>
                 <{else}>
-                    Аноним
+                    <{t "Anonymous" }>
                 <{/if}>
 
                 <{if $answer.is_authorized}>
-                    <b title="Авторизован">
+                    <b title="<{t 'Authorized'}>">
                         A
                     </b>
                 <{/if}>
             </b>
 
             <b>
-                ответил на пост
+                <{t "replied to the post" }>
                 <{if $post.author}>
                     <{$post.author|htmlspecialchars}>
                 <{else}>
-                    Аноним
+                    <{t "Anonymous" }>
                 <{/if}>
             </b>
 
             <{if $discussion.is_guest_review || !$customer.is_guest}>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#discussion-form" data-post-id="<{$answer.id}>">
-                    Ответить на отзыв
+                    <{t "Reply_to_review" }>
                 </button>
             <{else}>
                 <a href="<{account_sign_in_url '#discussion-anchor' message='Авторизоваться чтобы написать отзыв'}>" class="btn btn-primary">
-                    Авторизоваться чтобы ответить на отзыв
+                    <{t "Log_in_to_reply" }>
                 </a>
             <{/if}>
         </p>

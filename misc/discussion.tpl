@@ -2,11 +2,11 @@
 <{if $discussion.is_active}>
     <{if $discussion.is_guest_review || !$customer.is_guest}>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#discussion-form" id="discussion-anchor">
-            Написать отзыв
+            <{t 'Write_a_feedback'}>
         </button>
     <{else}>
         <a href="<{account_sign_in_url '#discussion-anchor' message='Авторизоваться чтобы написать отзыв'}>" class="btn btn-primary" id="discussion-anchor">
-            Авторизоваться чтобы написать отзыв
+            <{t 'Log_in_to'}>
         </a>
     <{/if}>
 
@@ -29,7 +29,7 @@
                     <{elseif $post.author}>
                         <{$post.author|htmlspecialchars}>
                     <{else}>
-                        Аноним
+                        <{t "Anonymous" }>
                     <{/if}>
 
                     <{if $post.is_authorized}>
@@ -41,11 +41,11 @@
 
                 <{if $discussion.is_guest_review || !$customer.is_guest}>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#discussion-form" data-post-id="<{$post.id}>">
-                        Ответить на отзыв
+                        <{t "Reply_to_review" }>
                     </button>
                 <{else}>
                     <a href="<{account_sign_in_url '#discussion-anchor' message='Авторизоваться чтобы написать отзыв'}>" class="btn btn-primary">
-                        Авторизоваться чтобы ответить на отзыв
+                        <{t "Log_in_to_reply" }>
                     </a>
                 <{/if}>
             </p>
@@ -57,14 +57,14 @@
 
                 <{if $post.pros}>
                     <p>
-                        <b>Плюсы:</b><br />
+                        <b><{t "Pros" }>:</b><br />
                         <{$post.pros|htmlspecialchars|nl2br}>
                     </p>
                 <{/if}>
 
                 <{if $post.cons}>
                     <p>
-                        <b>Минусы:</b><br />
+                        <b><{t 'Minuses' }>:</b><br />
                         <{$post.cons|htmlspecialchars|nl2br}>
                     </p>
                 <{/if}>
@@ -102,8 +102,8 @@
         <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
                 <div class="alert alert-warning">
-                    <h4 class="alert-heading">Ваш отзыв добавлен</h4>
-                    <p>Спасибо!</p>
+                    <h4 class="alert-heading"><{t 'has_been_added' }></h4>
+                    <p><{t 'Thank' }>!</p>
                 </div>
             </div>
         </div>
@@ -124,11 +124,11 @@
         <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
                 <div class="alert alert-warning">
-                    <h4 class="alert-heading">Ваш отзыв не добавлен</h4>
-                    <p>Повторите попытку позже.</p>
+                    <h4 class="alert-heading"><{t 'not_been_added' }></h4>
+                    <p><{t 'Please_try_again_later' }></p>
                     <{if $reason}>
                         <p>
-                            Причина:<br />
+                            <{t 'Cause' }>:<br />
                             <{$reason|nl2br}>
                         </p>
                     <{/if}>
@@ -167,8 +167,8 @@
                     <input type="hidden" name="answer_to_discussion_post_id" id="discussion-form-post-id" value="0" />
 
                     <div class="modal-header">
-                        <h5 class="modal-title js-discussion-new">Написать отзыв</h5>
-                        <h5 class="modal-title js-discussion-respond">Ответить на отзыв</h5>
+                        <h5 class="modal-title js-discussion-new"><{t 'Write_a_feedback' }></h5>
+                        <h5 class="modal-title js-discussion-respond"><{t 'Reply_to_review' }></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -176,55 +176,55 @@
 
                     <div class="modal-body">
                         <div class="js-discussion-respond">
-                            Ответить на отзыв
+                            <{t 'Reply_to_review' }>
                             <b class="js-discussion-respond-to"></b>:
                             <blockquote class="js-discussion-respond-comment">
                             </blockquote>
                         </div>
 
                         <div class="form-group">
-                            <textarea class="form-control" name="comment" rows="10" aria-required="true" placeholder="Текст отзыва"></textarea>
+                            <textarea class="form-control" name="comment" rows="10" aria-required="true" placeholder="<{t 'Review_text' }>"></textarea>
                         </div>
 
                         <{if $discussion.is_pros}>
                             <div class="form-group js-discussion-new">
                                 <label for="discussion-pros-field">Плюсы</label>
-                                <textarea class="form-control" name="pros" id="discussion-pros-field" rows="5" aria-required="true" placeholder="Опишите плюсы"></textarea>
+                                <textarea class="form-control" name="pros" id="discussion-pros-field" rows="5" aria-required="true" placeholder="<{t 'Describe_the_pros' }>"></textarea>
                             </div>
                         <{/if}>
 
                         <{if $discussion.is_cons}>
                             <div class="form-group js-discussion-new">
                                 <label for="discussion-cons-field">Минусы</label>
-                                <textarea class="form-control" name="cons" id="discussion-cons-field" rows="5" aria-required="true" placeholder="Опишите минусы"></textarea>
+                                <textarea class="form-control" name="cons" id="discussion-cons-field" rows="5" aria-required="true" placeholder="<{t 'Describe_the_cons' }>"></textarea>
                             </div>
                         <{/if}>
 
                         <{if $customer.is_guest}>
                             <div class="form-group">
-                                <label for="discussion-author-field">Ваше Имя</label>
-                                <input type="text" class="form-control" name="author" id="discussion-author-field" placeholder="Имя" />
+                                <label for="discussion-author-field"><{t 'Your_name' }></label>
+                                <input type="text" class="form-control" name="author" id="discussion-author-field" placeholder="<{t 'Name' }>" />
                             </div>
                         <{/if}>
 
                         <{if $discussion.is_rating}>
                             <div class="form-group js-discussion-new">
-                                <label for="discussion-rating-field">Оценка</label>
+                                <label for="discussion-rating-field"><{t 'Rate' }></label>
                                 <select class="form-control" name="rating" id="discussion-rating-field">
                                     <option value="1">
-                                        Унылое говно
+                                        <{t 'Sad_shit' }>
                                     </option>
                                     <option value="2">
-                                        Очень плохо
+                                        <{t 'Very_bad' }>
                                     </option>
                                     <option value="3">
-                                        Плохо
+                                        <{t 'poorly' }>
                                     </option>
                                     <option value="4">
-                                        Печально
+                                        <{t 'Sad' }>
                                     </option>
                                     <option value="5" selected="selected">
-                                        Сойдет
+                                        <{t 'Will_do' }>
                                     </option>
                                 </select>
                             </div>
@@ -232,8 +232,8 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Отправить</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Отмена</button>
+                        <button type="submit" class="btn btn-primary"><{t 'Send' }></button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"><{t 'Cancel' }></button>
                     </div>
                     <{/discussion_form}>
                 </div>
