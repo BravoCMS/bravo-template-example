@@ -17,7 +17,8 @@
                 "%option_key%": {},
                 "%option_key%": {},
                 "%option_key%": {}
-            }
+            },
+            "is_active": 1
         },
         "%module_name%": {},
         "%module_name%": {},
@@ -36,7 +37,10 @@
 - page_articles
 - page_albums
 - page_brands
+- page_events
+- page_contacts
 - blog_article
+- event
 
 
 Module attribute `file` is a default template for the module. Optional, the default values are:
@@ -69,6 +73,9 @@ Module attribute `options` is a way to implement different views of the same sys
 
 
 `%option_key%` - unique key for the view option, if set as `default` - it will be default view file, which will replace `%module_name%.file` attribute
+
+
+`%option_key%.is_active` - integer, 0 or 1, optional defaults to 1. Whether the module can be selected in panel
 
 
 `%option_key%.name` - self descriptive name for the view option, optional
