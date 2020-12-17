@@ -12,13 +12,15 @@
                 "%option_key%": {
                     "name": "Self descriptive name",
                     "file": "/some_path_to_file.tpl",
-                    "image": "/some_path_to_image_file.jpg"
+                    "image": "/some_path_to_image_file.jpg",
+                    "order": 124
                 },
                 "%option_key%": {},
                 "%option_key%": {},
                 "%option_key%": {}
             },
-            "is_active": 1
+            "is_active": 1,
+            "order": 123
         },
         "%module_name%": {},
         "%module_name%": {},
@@ -73,6 +75,9 @@ Module attribute `options` is a way to implement different views of the same sys
 
 
 `%option_key%` - unique key for the view option, if set as `default` - it will be default view file, which will replace `%module_name%.file` attribute
+
+
+`%option_key%.order` - integer, optional. Ordering number in the panel list
 
 
 `%option_key%.is_active` - integer, 0 or 1, optional defaults to 1. Whether the module can be selected in panel

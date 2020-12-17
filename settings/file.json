@@ -5,17 +5,21 @@
             "default": {
                 "name": "Photos list",
                 "file": "/photo_album.tpl",
-                "image": "/assets/image/scheme/orange.jpg"
+                "image": "/assets/image/scheme/orange.jpg",
+                "order": 2
             },
             "slider": {
                 "name": "Photos slider",
                 "file": "/photo_album_slider.tpl",
-                "image": "/assets/image/scheme/orange.jpg"
+                "image": "/assets/image/scheme/orange.jpg",
+                "order": 3
             }
         }
     },
     "page_text": {
-        "file": "/text.tpl"
+        "name": "Text page",
+        "file": "/text.tpl",
+        "order": 1
     },
     "blog_article": {
         "file": "/article.tpl"
