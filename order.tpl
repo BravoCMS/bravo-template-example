@@ -325,7 +325,7 @@
                         <input type="text" name="address[number]" placeholder="<{t 'Number'}>" class="form-control" style="width: 25%;" />
                         <input type="text" name="address[apartment]" placeholder="<{t 'Apartment'}>" class="form-control" style="width: 25%;" />
                     </div>
-                    <textarea name="address[address]" placeholder="<{t 'Address'}> class="form-control hide js-order-address-text" rows="2"></textarea>
+                    <textarea name="address[address]" placeholder="<{t 'Address'}>" class="form-control hide js-order-address-text" rows="2"></textarea>
                 <{else}>
                     <label for="order-zip">
                         Индекс
