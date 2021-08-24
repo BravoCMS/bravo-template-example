@@ -43,5 +43,6 @@ Template uses smarty syntax. [Smarty Documentation](https://www.smarty.net/docs/
   - [Using npm](settings/using_npm.md)
   - [Managing sections in admin panel](settings/admin_sections.md)
   - [Schemes or color themes](settings/schemes.md)
+  - [Template customization](settings/template_customization.md)
 - [Template post-tags](post_tags/index.md)
   - [Simple form](post_tags/simple_form.md)

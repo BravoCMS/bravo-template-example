@@ -65,4 +65,13 @@ You can always see all the properties of a variable `<{$prop|debug_print_var}>`
 ## `$is_web_admin` - `bool` whether user came from admin panel, and should see management tools
 
 
+## `$template` - global current template data
+
+`$template.developer_folder` - `string`, active template path
+
+`$template.scheme` - `string`, active template scheme, see [Schemes or color themes](settings/schemes.md)
+
+`$template.template_customization` - `object`, custom template settings, see [Template customization](settings/template_customization.md)
+
+
 [Home](index.md).

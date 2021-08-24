@@ -18,6 +18,7 @@ files can be included by using prefix `@`, `settings.json` example:
 - [System module templates](system_module_templates.md)
 - [Managing sections in admin panel](admin_sections.md)
 - [Schemes or color themes](schemes.md)
+- [Template customization](template_customization.md)
 
 
 [Home](../index.md)
