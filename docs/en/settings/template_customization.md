@@ -1,5 +1,5 @@
 
-# Admin sections
+# Template customization
 
 ## Format implemented in `settings.json`
 
