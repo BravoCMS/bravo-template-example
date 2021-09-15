@@ -15,7 +15,7 @@
         <{get_catalog_wishlists "wishlists"}>
 
         <script>
-            jQuery(function ($) {
+            require(['jquery'], function ($) {
                 $(document.body).on('change', '.js-catalog-filter', function () {
                     $(this).submit();
                 });
@@ -121,29 +121,31 @@
                     </select>
                 </div>
 
-                <div class="form-group">
-                    <label for="catalog-order">
-                        <{t 'Sort'}>
-                    </label>
+                <{if count($filter.ordering) > 1}>
+                    <div class="form-group">
+                        <label for="catalog-order">
+                            <{t 'Sort'}>
+                        </label>
 
-                    <select name="order" class="form-control" id="catalog-order">
-                        <option value="price"<{if $smarty.get.order == 'price'}> selected="selected"<{/if}>>
-                            <{t 'Cheap_to_expensive'}>
-                        </option>
-                        <option value="price_desc"<{if $smarty.get.order == 'price_desc'}> selected="selected"<{/if}>>
-                            <{t 'From_expensive_to_cheap'}> 
-                        </option>
-                        <option value="date_asc"<{if $smarty.get.order == 'date_asc'}> selected="selected"<{/if}>>
-                            <{t 'From_old_to_new'}>
-                        </option>
-                        <option value="date"<{if $smarty.get.order == 'date'}> selected="selected"<{/if}>>
-                            <{t 'From_new_to_old'}> 
-                        </option>
-                        <option value="rating"<{if $smarty.get.order == 'rating'}> selected="selected"<{/if}>>
-                            <{t 'By_rating'}>
-                        </option>
-                    </select>
-                </div>
+                        <select name="order" class="form-control" id="catalog-order">
+                            <{foreach $filter.ordering as $orderingValue}>
+                                <option value="<{$orderingValue}>"<{if $smarty.get.order == $orderingValue}> selected="selected"<{/if}>>
+                                    <{if $orderingValue == 'price'}>
+                                        <{t 'Cheap_to_expensive'}>
+                                    <{elseif $orderingValue == 'price_desc'}>
+                                        <{t 'From_expensive_to_cheap'}> 
+                                    <{elseif $orderingValue == 'date_asc'}>
+                                        <{t 'From_old_to_new'}>
+                                    <{elseif $orderingValue == 'date'}>
+                                        <{t 'From_new_to_old'}> 
+                                    <{elseif $orderingValue == 'rating'}>
+                                        <{t 'By_rating'}>
+                                    <{/if}>
+                                </option>
+                            <{/foreach}>
+                        </select>
+                    </div>
+                <{/if}>
             </form>
         </div>
 
@@ -320,7 +322,7 @@
             <{/foreach}>
 
             <script>
-                jQuery(function ($) {
+                require(['jquery'], function ($) {
                     $(document.body).on('click', '.js-catalog-pagination a', function (e) {
                         e.preventDefault();
                         $('.js-page-value').val($(this).data('page')).trigger('change');
