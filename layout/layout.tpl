@@ -50,6 +50,9 @@
         <link href="<{file 'assets/css/scheme/red.css'}>" rel="stylesheet" type="text/css" />
     <{/if}>
 
+    <meta name="csrf-param" content="<{csrf_param}>" />
+    <meta name="csrf-token" content="<{csrf_token}>" />
+
     <script>
         var cpAppLanguageCode = "<{$site.active_language.iso_name|escape}>";
         <{if $site.active_language.iso_name == 'en'}>
