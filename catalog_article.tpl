@@ -50,15 +50,17 @@
                 <{$article.price.html}><br />
             <{/if}>
 
-            <{basket_form article=$article return_url="#basket-modal"}>
-            <button type="submit" class="btn btn-success">
-                <{t 'Buy'}>
-            </button>
-            <{/basket_form}>
+            <{if $article.availability_code != 'out_of_stock'}>
+                <{basket_form article=$article return_url="#basket-modal"}>
+                <button type="submit" class="btn btn-success">
+                    <{t 'Buy'}>
+                </button>
+                <{/basket_form}>
 
-            <button class="btn btn-primary" data-toggle="modal" data-target="#callback-form">
-                <{t 'Quick_order'}>
-            </button>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#callback-form">
+                    <{t 'Quick_order'}>
+                </button>
+            <{/if}>
 
             <div class="modal" role="dialog" id="callback-form">
                 <div class="modal-dialog" role="document">
