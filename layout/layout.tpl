@@ -83,7 +83,7 @@
                 "autosaving": "node_modules/@bravocms/autosaving/autosaving",
                 "fileManager": "node_modules/@bravocms/file-manager/manager",
                 "languageSelector": "node_modules/@bravocms/language-selector/jquery.language-selector",
-                "gmaps": "http://maps.google.com/maps/api/js?v=3&sensor=false&key=AIzaSyBUSNjQ03wrgnQaxpw6_BCSqJgSCLUZNr0"
+                "gmaps": "http://maps.google.com/maps/api/js?v=3&sensor=false&key=<{apikey_gmaps}>"
             }
         });
 
