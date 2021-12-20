@@ -97,6 +97,14 @@
     <meta name="js-recaptcha-key" id="js-recaptcha-key" content="<{$site.grecaptcha_key|escape}>" />
     <{*script type="text/javascript" id="js-recaptcha-script" data-key="6LfYxmQUAAAAADIWG18LmQx4gwQSnLUuFtJd67go" src="https://www.google.com/recaptcha/api.js?render=6LfYxmQUAAAAADIWG18LmQx4gwQSnLUuFtJd67go"></script*}>
 
+    <{if $site.languages|count > 1}>
+        <{foreach $site.languages as $language}>
+            <{if $language.language_id != $site.active_language.language_id}>
+                <link rel="alternate" hreflang="<{$language.iso_name}>" href="<{$language.alternate_url}>" />
+            <{/if}>
+        <{/foreach}>
+    <{/if}>
+
     <{custom_code "head_close"}>
 <{/block}>
 
